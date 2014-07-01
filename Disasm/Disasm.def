@@ -1,0 +1,47 @@
+LIBRARY	disasm_d
+
+EXPORTS
+	x86_report_error	
+	x86_init
+	x86_set_options
+	x86_get_options
+	x86_cleanup
+	x86_insn_is_valid
+	x86_disasm
+	x86_disasm_range
+	x86_disasm_forward
+	x86_oplist_free
+	x86_operand_foreach
+	x86_operand_count
+	x86_operand_1st
+	x86_operand_2nd
+	x86_operand_3rd
+	x86_operand_size
+	x86_get_rel_offset
+	x86_get_branch_target
+	x86_get_imm
+	x86_get_raw_imm
+	x86_set_insn_addr
+	x86_set_insn_offset
+	x86_set_insn_function
+	x86_set_insn_block
+	x86_tag_insn
+	x86_untag_insn
+	x86_insn_is_tagged
+	x86_format_operand
+	x86_format_mnemonic
+	x86_format_insn
+	x86_format_header
+	x86_endian
+	x86_addr_size
+	x86_op_size
+	x86_word_size
+	x86_max_inst_size
+	x86_sp_reg
+	x86_fp_reg
+	x86_ip_reg
+;	x86_reg_from_id
+	x86_invariant_disasm
+	x86_size_disasm
+
+	

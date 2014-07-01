@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{e806151f-4969-45ca-af8a-902206bac02d}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{df8276c8-8a0b-4856-8316-e3ec86bf54b7}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Disasm">
+      <UniqueIdentifier>{39566cd0-e9f7-4ef4-bac8-9be35f18d17d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Disasm\Disasm Header Files">
+      <UniqueIdentifier>{bf046ea3-9f47-4993-a8af-140b6fdfe2af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Disasm\Disasm Source Files">
+      <UniqueIdentifier>{5add3bac-fe10-4da9-8de3-10cccdbc794e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Disasm\Resource Files">
+      <UniqueIdentifier>{cd4fd931-8991-4321-bc5e-c7091ff81d7e}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Disasm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="disasm\ia32_fixup.c">
+      <Filter>Disasm\Disasm Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="disasm\ia32_implicit.c">
+      <Filter>Disasm\Disasm Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="disasm\ia32_insn.c">
+      <Filter>Disasm\Disasm Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="disasm\ia32_invariant.c">
+      <Filter>Disasm\Disasm Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="disasm\ia32_modrm.c">
+      <Filter>Disasm\Disasm Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="disasm\ia32_opcode_tables.c">
+      <Filter>Disasm\Disasm Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="disasm\ia32_operand.c">
+      <Filter>Disasm\Disasm Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="disasm\ia32_reg.c">
+      <Filter>Disasm\Disasm Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="disasm\ia32_settings.c">
+      <Filter>Disasm\Disasm Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="disasm\x86_disasm.c">
+      <Filter>Disasm\Disasm Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="disasm\x86_format.c">
+      <Filter>Disasm\Disasm Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="disasm\x86_imm.c">
+      <Filter>Disasm\Disasm Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="disasm\x86_insn.c">
+      <Filter>Disasm\Disasm Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="disasm\x86_misc.c">
+      <Filter>Disasm\Disasm Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="disasm\x86_operand_list.c">
+      <Filter>Disasm\Disasm Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Disasm.def">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="DisasmR.def">
+      <Filter>Header Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="disasm\ia32_implicit.h">
+      <Filter>Disasm\Disasm Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="disasm\ia32_insn.h">
+      <Filter>Disasm\Disasm Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="disasm\ia32_invariant.h">
+      <Filter>Disasm\Disasm Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="disasm\ia32_modrm.h">
+      <Filter>Disasm\Disasm Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="disasm\ia32_opcode_tables.h">
+      <Filter>Disasm\Disasm Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="disasm\ia32_operand.h">
+      <Filter>Disasm\Disasm Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="disasm\ia32_reg.h">
+      <Filter>Disasm\Disasm Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="disasm\ia32_settings.h">
+      <Filter>Disasm\Disasm Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="disasm\libdis.h">
+      <Filter>Disasm\Disasm Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="disasm\qword.h">
+      <Filter>Disasm\Disasm Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="disasm\x86_imm.h">
+      <Filter>Disasm\Disasm Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="disasm\x86_operand_list.h">
+      <Filter>Disasm\Disasm Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

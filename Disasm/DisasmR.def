@@ -1,0 +1,45 @@
+LIBRARY	disasm
+
+EXPORTS
+	x86_report_error			@1 NONAME
+	x86_init					@2 NONAME
+	x86_set_options				@3 NONAME
+	x86_get_options				@4 NONAME
+	x86_cleanup					@5 NONAME
+	x86_insn_is_valid			@6 NONAME
+	x86_disasm					@7 NONAME
+	x86_disasm_range			@8 NONAME
+	x86_disasm_forward			@9 NONAME
+	x86_oplist_free				@10 NONAME
+	x86_operand_foreach			@11 NONAME
+	x86_operand_count			@12 NONAME
+	x86_operand_1st				@13 NONAME
+	x86_operand_2nd				@14 NONAME
+	x86_operand_3rd				@15 NONAME
+	x86_operand_size			@16 NONAME
+	x86_get_rel_offset			@17 NONAME
+	x86_get_branch_target		@18 NONAME
+	x86_get_imm					@19 NONAME
+	x86_get_raw_imm				@20 NONAME
+	x86_set_insn_addr			@21 NONAME
+	x86_set_insn_offset			@22 NONAME
+	x86_set_insn_function		@23 NONAME
+	x86_set_insn_block			@24 NONAME
+	x86_tag_insn				@25 NONAME
+	x86_untag_insn				@26 NONAME
+	x86_insn_is_tagged			@27 NONAME
+	x86_format_operand			@28 NONAME
+	x86_format_mnemonic			@29 NONAME
+	x86_format_insn				@30 NONAME
+	x86_format_header			@31 NONAME
+	x86_endian					@32 NONAME
+	x86_addr_size				@33 NONAME
+	x86_op_size					@34 NONAME
+	x86_word_size				@35 NONAME
+	x86_max_inst_size			@36 NONAME
+	x86_sp_reg					@37 NONAME
+	x86_fp_reg					@38 NONAME
+	x86_ip_reg					@39 NONAME
+;	x86_reg_from_id
+	x86_invariant_disasm		@40 NONAME
+	x86_size_disasm				@41 NONAME
