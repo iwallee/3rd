@@ -979,10 +979,9 @@ void CUDT::close()
       m_bListening = false;
       m_pRcvQueue->removeListener(this);
    }
-   else if (m_bConnecting)
-   {
-      m_pRcvQueue->removeConnector(m_SocketID);
-   }
+   
+   m_pRcvQueue->removeConnector(m_SocketID);
+   
 
    if (m_bConnected)
    {
