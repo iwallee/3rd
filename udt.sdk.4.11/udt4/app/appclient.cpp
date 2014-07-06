@@ -38,8 +38,8 @@ int main(int argc, char* argv[])
 
    hints.ai_flags = AI_PASSIVE;
    hints.ai_family = AF_INET;
-   hints.ai_socktype = SOCK_STREAM;
-   //hints.ai_socktype = SOCK_DGRAM;
+   //hints.ai_socktype = SOCK_STREAM;
+   hints.ai_socktype = SOCK_DGRAM;
 
    if (0 != getaddrinfo(NULL, "9000", &hints, &local))
    {
@@ -111,11 +111,11 @@ int main(int argc, char* argv[])
       int ss;
       while (ssize < size)
       {
-         if (UDT::ERROR == (ss = UDT::send(client, data + ssize, size - ssize, 0)))
-         {
-            cout << "send:" << UDT::getlasterror().getErrorMessage() << endl;
-            break;
-         }
+          if (UDT::ERROR == (ss = UDT::sendmsg(client, data + ssize, size - ssize, -1, true)))
+          {
+              cout << "send:" << UDT::getlasterror().getErrorMessage() << endl;
+              break;
+          }
 
          ssize += ss;
       }
