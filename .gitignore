@@ -4,3 +4,7 @@
 /pcre-8.33/build/pcre.dir
 /curl-7.34.0/build/lib/Release
 /curl-7.34.0/build/lib/Debug
+/curl-7.34.0/vs/vc12/lib/Release
+/curl-7.34.0/vs/vc12/lib/Debug
+/FreeImage3154/FreeImage/Wrapper/FreeImagePlus/Debug/vc120.idb
+/udt.sdk.4.11/udt4/src/udtd.lib

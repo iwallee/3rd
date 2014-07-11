@@ -143,7 +143,7 @@
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <Lib>
-      <OutputFile>$(SolutionDir)\build\$(TargetName)_d.lib</OutputFile>
+      <OutputFile>$(SolutionDir)\build\$(TargetName)d.lib</OutputFile>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
