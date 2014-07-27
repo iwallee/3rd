@@ -39,7 +39,7 @@ written by
 *****************************************************************************/
 
 
-#ifndef WIN32
+#if !defined(WIN32) && !defined(WIN64)
    #include <cstring>
    #include <cerrno>
    #include <unistd.h>
@@ -60,7 +60,7 @@ written by
 
 bool CTimer::m_bUseMicroSecond = false;
 uint64_t CTimer::s_ullCPUFrequency = CTimer::readCPUFrequency();
-#ifndef WIN32
+#if !defined(WIN32) && !defined(WIN64)
    pthread_mutex_t CTimer::m_EventLock = PTHREAD_MUTEX_INITIALIZER;
    pthread_cond_t CTimer::m_EventCond = PTHREAD_COND_INITIALIZER;
 #else
@@ -73,7 +73,7 @@ m_ullSchedTime(),
 m_TickCond(),
 m_TickLock()
 {
-   #ifndef WIN32
+   #if !defined(WIN32) && !defined(WIN64)
       pthread_mutex_init(&m_TickLock, NULL);
       pthread_cond_init(&m_TickCond, NULL);
    #else
@@ -84,7 +84,7 @@ m_TickLock()
 
 CTimer::~CTimer()
 {
-   #ifndef WIN32
+   #if !defined(WIN32) && !defined(WIN64)
       pthread_mutex_destroy(&m_TickLock);
       pthread_cond_destroy(&m_TickCond);
    #else
@@ -199,7 +199,7 @@ void CTimer::sleepto(uint64_t nexttime)
             __asm__ volatile ("nop; nop; nop; nop; nop;");
          #endif
       #else
-         #ifndef WIN32
+        #if !defined(WIN32) && !defined(WIN64)
             timeval now;
             timespec timeout;
             gettimeofday(&now, 0);
@@ -234,7 +234,7 @@ void CTimer::interrupt()
 
 void CTimer::tick()
 {
-   #ifndef WIN32
+   #if !defined(WIN32) && !defined(WIN64)
       pthread_cond_signal(&m_TickCond);
    #else
       SetEvent(m_TickCond);
@@ -249,7 +249,7 @@ uint64_t CTimer::getTime()
    //return x / s_ullCPUFrequency;
    //Specific fix may be necessary if rdtsc is not available either.
 
-   #ifndef WIN32
+   #if !defined(WIN32) && !defined(WIN64)
       timeval t;
       gettimeofday(&t, 0);
       return t.tv_sec * 1000000ULL + t.tv_usec;
@@ -274,7 +274,7 @@ uint64_t CTimer::getTime()
 
 void CTimer::triggerEvent()
 {
-   #ifndef WIN32
+   #if !defined(WIN32) && !defined(WIN64)
       pthread_cond_signal(&m_EventCond);
    #else
       SetEvent(m_EventCond);
@@ -283,7 +283,7 @@ void CTimer::triggerEvent()
 
 void CTimer::waitForEvent()
 {
-   #ifndef WIN32
+   #if !defined(WIN32) && !defined(WIN64)
       timeval now;
       timespec timeout;
       gettimeofday(&now, 0);
@@ -307,7 +307,7 @@ void CTimer::waitForEvent()
 
 void CTimer::sleep()
 {
-   #ifndef WIN32
+   #if !defined(WIN32) && !defined(WIN64)
       usleep(10);
    #else
       Sleep(1);
@@ -321,7 +321,7 @@ CGuard::CGuard(pthread_mutex_t& lock):
 m_Mutex(lock),
 m_iLocked()
 {
-   #ifndef WIN32
+   #if !defined(WIN32) && !defined(WIN64)
       m_iLocked = pthread_mutex_lock(&m_Mutex);
    #else
       m_iLocked = WaitForSingleObject(m_Mutex, INFINITE);
@@ -331,7 +331,7 @@ m_iLocked()
 // Automatically unlock in destructor
 CGuard::~CGuard()
 {
-   #ifndef WIN32
+   #if !defined(WIN32) && !defined(WIN64)
       if (0 == m_iLocked)
          pthread_mutex_unlock(&m_Mutex);
    #else
@@ -342,7 +342,7 @@ CGuard::~CGuard()
 
 void CGuard::enterCS(pthread_mutex_t& lock)
 {
-   #ifndef WIN32
+   #if !defined(WIN32) && !defined(WIN64)
       pthread_mutex_lock(&lock);
    #else
       WaitForSingleObject(lock, INFINITE);
@@ -351,7 +351,7 @@ void CGuard::enterCS(pthread_mutex_t& lock)
 
 void CGuard::leaveCS(pthread_mutex_t& lock)
 {
-   #ifndef WIN32
+   #if !defined(WIN32) && !defined(WIN64)
       pthread_mutex_unlock(&lock);
    #else
       ReleaseMutex(lock);
@@ -360,7 +360,7 @@ void CGuard::leaveCS(pthread_mutex_t& lock)
 
 void CGuard::createMutex(pthread_mutex_t& lock)
 {
-   #ifndef WIN32
+   #if !defined(WIN32) && !defined(WIN64)
       pthread_mutex_init(&lock, NULL);
    #else
       lock = CreateMutex(NULL, false, NULL);
@@ -369,7 +369,7 @@ void CGuard::createMutex(pthread_mutex_t& lock)
 
 void CGuard::releaseMutex(pthread_mutex_t& lock)
 {
-   #ifndef WIN32
+   #if !defined(WIN32) && !defined(WIN64)
       pthread_mutex_destroy(&lock);
    #else
       CloseHandle(lock);
@@ -378,7 +378,7 @@ void CGuard::releaseMutex(pthread_mutex_t& lock)
 
 void CGuard::createCond(pthread_cond_t& cond)
 {
-   #ifndef WIN32
+   #if !defined(WIN32) && !defined(WIN64)
       pthread_cond_init(&cond, NULL);
    #else
       cond = CreateEvent(NULL, false, false, NULL);
@@ -387,7 +387,7 @@ void CGuard::createCond(pthread_cond_t& cond)
 
 void CGuard::releaseCond(pthread_cond_t& cond)
 {
-   #ifndef WIN32
+   #if !defined(WIN32) && !defined(WIN64)
       pthread_cond_destroy(&cond);
    #else
       CloseHandle(cond);
@@ -401,7 +401,7 @@ m_iMajor(major),
 m_iMinor(minor)
 {
    if (-1 == err)
-      #ifndef WIN32
+      #if !defined(WIN32) && !defined(WIN64)
          m_iErrno = errno;
       #else
          m_iErrno = GetLastError();
@@ -617,7 +617,7 @@ const char* CUDTException::getErrorMessage()
    if ((0 != m_iMajor) && (0 < m_iErrno))
    {
       m_strMsg += ": ";
-      #ifndef WIN32
+      #if !defined(WIN32) && !defined(WIN64)
          char errmsg[1024];
          if (strerror_r(m_iErrno, errmsg, 1024) == 0)
             m_strMsg += errmsg;
@@ -630,7 +630,7 @@ const char* CUDTException::getErrorMessage()
    }
 
    // period
-   #ifndef WIN32
+   #if !defined(WIN32) && !defined(WIN64)
       m_strMsg += ".";
    #endif
 

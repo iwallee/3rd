@@ -42,7 +42,7 @@ written by
 #define __UDT_H__
 
 
-#ifndef WIN32
+#if !defined(WIN32) && !defined(WIN64)
    #include <sys/types.h>
    #include <sys/socket.h>
    #include <netinet/in.h>
@@ -68,7 +68,7 @@ written by
 //use -D_WIN32_WINNT=0x0501
 
 
-#ifdef WIN32
+#if defined WIN32 || defined WIN64
    #ifndef __MINGW__
       // Explicitly define 32-bit and 64-bit numbers
       typedef __int32 int32_t;
@@ -95,7 +95,7 @@ written by
 
 #define NO_BUSY_WAITING
 
-#ifdef WIN32
+#if defined WIN32 || defined WIN64
    #ifndef __MINGW__
       typedef SOCKET SYSSOCKET;
    #else

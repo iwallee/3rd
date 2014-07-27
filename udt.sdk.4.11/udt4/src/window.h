@@ -42,7 +42,7 @@ written by
 #define __UDT_WINDOW_H__
 
 
-#ifndef WIN32
+#if !defined(WIN32) && !defined(WIN64)
    #include <sys/time.h>
    #include <time.h>
 #endif

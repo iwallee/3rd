@@ -38,7 +38,7 @@ written by
    Yunhong Gu, last updated 05/05/2009
 *****************************************************************************/
 
-#ifdef WIN32
+#if defined WIN32 || defined WIN64
    #include <winsock2.h>
    #include <ws2tcpip.h>
    #ifdef LEGACY_WIN32
