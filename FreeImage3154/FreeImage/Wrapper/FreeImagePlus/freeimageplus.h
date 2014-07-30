@@ -30,7 +30,7 @@
 
 // Compiler options ---------------------------------------------------------
 
-#if defined(FREEIMAGE_LIB)
+#if defined(FREEIMAGEPLUS_LIB)
 	#define FIP_API
 	#define FIP_CALLCONV
 #else
@@ -62,7 +62,7 @@
 			#define FIP_API
 		#endif
 	#endif // WIN32 / !WIN32
-#endif // FREEIMAGE_LIB
+#endif // FREEIMAGEPLUS_LIB
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
