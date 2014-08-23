@@ -225,7 +225,7 @@
       <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
-      <OutputFile>$(ProjectDir)Debug\$(ProjectName).dll</OutputFile>
+      <OutputFile>$(SolutionDir)\bin\bin\$(ProjectName)d.dll</OutputFile>
       <AdditionalLibraryDirectories>$(ProjectDir)\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AssemblyDebug>true</AssemblyDebug>
@@ -730,13 +730,14 @@ yasm -a x86 -p gas -r raw -f win32 -g null -m x86 -o "$(ProjectDir)..\libmpg123\
     </PreLinkEvent>
     <Link>
       <AdditionalDependencies>dct36_3dnow.o;dct36_3dnowext.o;dct64_3dnow.o;dct64_3dnowext.o;dct64_mmx.o;dct64_sse.o;dct64_sse_float.o;equalizer_3dnow.o;getcpuflags.o;synth_3dnow.o;synth_3dnowext.o;synth_i586.o;synth_mmx.o;synth_sse.o;synth_sse_float.o;synth_stereo_sse_float.o;tabinit_mmx.o;synth_sse_accurate.o;synth_sse_s32.o;synth_stereo_sse_accurate.o;synth_stereo_sse_s32.o;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(ProjectDir)Debug\$(ProjectName).dll</OutputFile>
+      <OutputFile>$(SolutionDir)\bin\bin\$(ProjectName)d.dll</OutputFile>
       <AdditionalLibraryDirectories>$(ProjectDir)\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AssemblyDebug>true</AssemblyDebug>
       <BaseAddress>0x63000000</BaseAddress>
       <RandomizedBaseAddress>true</RandomizedBaseAddress>
       <FixedBaseAddress>false</FixedBaseAddress>
+      <ImportLibrary>$(SolutionDir)\build\$(TargetName)d.lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_x86_Dll_Minimal|Win32'">
@@ -833,12 +834,13 @@ yasm -a x86 -p gas -r raw -f win32 -g null -m x86 -o "$(ProjectDir)..\libmpg123\
     </PreLinkEvent>
     <Link>
       <AdditionalDependencies>dct36_3dnow.o;dct36_3dnowext.o;dct64_3dnow.o;dct64_3dnowext.o;dct64_mmx.o;dct64_sse.o;dct64_sse_float.o;equalizer_3dnow.o;getcpuflags.o;synth_3dnow.o;synth_3dnowext.o;synth_i586.o;synth_mmx.o;synth_sse.o;synth_sse_float.o;synth_stereo_sse_float.o;tabinit_mmx.o;synth_sse_accurate.o;synth_sse_s32.o;synth_stereo_sse_accurate.o;synth_stereo_sse_s32.o;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(ProjectDir)Release\$(ProjectName).dll</OutputFile>
+      <OutputFile>$(SolutionDir)\bin\bin\$(ProjectName).dll</OutputFile>
       <AdditionalLibraryDirectories>$(ProjectDir)\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <BaseAddress>0x63000000</BaseAddress>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <FixedBaseAddress>true</FixedBaseAddress>
+      <ImportLibrary>$(SolutionDir)\build\$(TargetName).lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
       <Command>
