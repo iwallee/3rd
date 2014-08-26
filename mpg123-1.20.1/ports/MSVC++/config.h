@@ -33,3 +33,5 @@
 #ifdef UNICODE
 	#define WANT_WIN32_UNICODE
 #endif
+
+#define ASMALIGN_BYTE
