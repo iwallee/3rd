@@ -11,12 +11,11 @@
 #include "include/cef_browser.h"
 #include "include/cef_command_line.h"
 #include "include/cef_frame.h"
-#include "include/cef_runnable.h"
 #include "include/cef_web_plugin.h"
+#include "include/wrapper/cef_helpers.h"
 #include "cefclient/client_handler.h"
 #include "cefclient/client_switches.h"
 #include "cefclient/string_util.h"
-#include "cefclient/util.h"
 
 CefRefPtr<ClientHandler> g_handler;
 CefRefPtr<CefCommandLine> g_command_line;
@@ -27,10 +26,10 @@ CefRefPtr<CefBrowser> AppGetBrowser() {
   return g_handler->GetBrowser();
 }
 
-CefWindowHandle AppGetMainHwnd() {
+ClientWindowHandle AppGetMainWindowHandle() {
   if (!g_handler.get())
-    return NULL;
-  return g_handler->GetMainHwnd();
+    return kNullWindowHandle;
+  return g_handler->GetMainWindowHandle();
 }
 
 void AppInitCommandLine(int argc, const char* const* argv) {
@@ -49,7 +48,7 @@ CefRefPtr<CefCommandLine> AppGetCommandLine() {
 
 // Returns the application settings based on command line arguments.
 void AppGetSettings(CefSettings& settings) {
-  ASSERT(g_command_line.get());
+  DCHECK(g_command_line.get());
   if (!g_command_line.get())
     return;
 
@@ -67,8 +66,19 @@ void AppGetSettings(CefSettings& settings) {
     settings.windowless_rendering_enabled = true;
 }
 
+void AppGetBrowserSettings(CefBrowserSettings& settings) {
+  DCHECK(g_command_line.get());
+  if (!g_command_line.get())
+    return;
+
+  if (g_command_line->HasSwitch(cefclient::kOffScreenFrameRate)) {
+    settings.windowless_frame_rate = atoi(g_command_line->
+        GetSwitchValue(cefclient::kOffScreenFrameRate).ToString().c_str());
+  }
+}
+
 bool AppIsOffScreenRenderingEnabled() {
-  ASSERT(g_command_line.get());
+  DCHECK(g_command_line.get());
   if (!g_command_line.get())
     return false;
 

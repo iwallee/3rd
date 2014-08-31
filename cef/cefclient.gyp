@@ -154,7 +154,6 @@
               # Add libraries and helper app.
               'destination': '<(PRODUCT_DIR)/cefclient.app/Contents/Frameworks',
               'files': [
-                '$(CONFIGURATION)/libplugin_carbon_interpose.dylib',
                 '<(PRODUCT_DIR)/cefclient Helper.app',
               ],
             },
@@ -220,12 +219,15 @@
               'destination': '<(PRODUCT_DIR)/',
               'files': [
                 'Resources/cef.pak',
+                'Resources/cef_100_percent.pak',
+                'Resources/cef_200_percent.pak',
                 'Resources/devtools_resources.pak',
                 'Resources/icudtl.dat',
                 'Resources/locales/',
                 '$(BUILDTYPE)/chrome-sandbox',
                 '$(BUILDTYPE)/libcef.so',
                 '$(BUILDTYPE)/libffmpegsumo.so',
+                '$(BUILDTYPE)/libpdf.so',
               ],
             },
           ],
@@ -241,6 +243,7 @@
             ],
             'libraries': [
               "$(BUILDTYPE)/libcef.so",
+              "-lX11",
             ],
           },
           'sources': [
@@ -374,7 +377,6 @@
               # Add libraries and helper app.
               'destination': '<(PRODUCT_DIR)/cefsimple.app/Contents/Frameworks',
               'files': [
-                '$(CONFIGURATION)/libplugin_carbon_interpose.dylib',
                 '<(PRODUCT_DIR)/cefsimple Helper.app',
               ],
             },
@@ -433,17 +435,17 @@
               'destination': '<(PRODUCT_DIR)/',
               'files': [
                 'Resources/cef.pak',
+                'Resources/cef_100_percent.pak',
+                'Resources/cef_200_percent.pak',
                 'Resources/devtools_resources.pak',
                 'Resources/icudtl.dat',
                 'Resources/locales/',
                 '$(BUILDTYPE)/chrome-sandbox',
                 '$(BUILDTYPE)/libcef.so',
                 '$(BUILDTYPE)/libffmpegsumo.so',
+                '$(BUILDTYPE)/libpdf.so',
               ],
             },
-          ],
-          'dependencies': [
-            'gtk',
           ],
           'link_settings': {
             'ldflags': [
@@ -453,6 +455,7 @@
             ],
             'libraries': [
               "$(BUILDTYPE)/libcef.so",
+              "-lX11",
             ],
           },
           'sources': [
@@ -483,11 +486,6 @@
         'SYMROOT': 'xcodebuild',
       },
       'conditions': [
-        [ 'OS=="linux" or OS=="freebsd" or OS=="openbsd"', {
-          'dependencies': [
-            'gtk',
-          ],
-        }],
         [ 'OS=="win" and multi_threaded_dll', {
           'configurations': {
             'Debug': {

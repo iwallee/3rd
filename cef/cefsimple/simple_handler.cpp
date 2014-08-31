@@ -7,9 +7,10 @@
 #include <sstream>
 #include <string>
 
-#include "cefsimple/util.h"
+#include "include/base/cef_bind.h"
 #include "include/cef_app.h"
-#include "include/cef_runnable.h"
+#include "include/wrapper/cef_closure_task.h"
+#include "include/wrapper/cef_helpers.h"
 
 namespace {
 
@@ -19,7 +20,7 @@ SimpleHandler* g_instance = NULL;
 
 SimpleHandler::SimpleHandler()
     : is_closing_(false) {
-  ASSERT(!g_instance);
+  DCHECK(!g_instance);
   g_instance = this;
 }
 
@@ -33,14 +34,14 @@ SimpleHandler* SimpleHandler::GetInstance() {
 }
 
 void SimpleHandler::OnAfterCreated(CefRefPtr<CefBrowser> browser) {
-  REQUIRE_UI_THREAD();
+  CEF_REQUIRE_UI_THREAD();
 
   // Add to the list of existing browsers.
   browser_list_.push_back(browser);
 }
 
 bool SimpleHandler::DoClose(CefRefPtr<CefBrowser> browser) {
-  REQUIRE_UI_THREAD();
+  CEF_REQUIRE_UI_THREAD();
 
   // Closing the main window requires special handling. See the DoClose()
   // documentation in the CEF header for a detailed destription of this
@@ -56,7 +57,7 @@ bool SimpleHandler::DoClose(CefRefPtr<CefBrowser> browser) {
 }
 
 void SimpleHandler::OnBeforeClose(CefRefPtr<CefBrowser> browser) {
-  REQUIRE_UI_THREAD();
+  CEF_REQUIRE_UI_THREAD();
 
   // Remove from the list of existing browsers.
   BrowserList::iterator bit = browser_list_.begin();
@@ -78,7 +79,7 @@ void SimpleHandler::OnLoadError(CefRefPtr<CefBrowser> browser,
                                 ErrorCode errorCode,
                                 const CefString& errorText,
                                 const CefString& failedUrl) {
-  REQUIRE_UI_THREAD();
+  CEF_REQUIRE_UI_THREAD();
 
   // Don't display an error for downloaded files.
   if (errorCode == ERR_ABORTED)
@@ -97,8 +98,7 @@ void SimpleHandler::CloseAllBrowsers(bool force_close) {
   if (!CefCurrentlyOn(TID_UI)) {
     // Execute on the UI thread.
     CefPostTask(TID_UI,
-        NewCefRunnableMethod(this, &SimpleHandler::CloseAllBrowsers,
-                             force_close));
+        base::Bind(&SimpleHandler::CloseAllBrowsers, this, force_close));
     return;
   }
 

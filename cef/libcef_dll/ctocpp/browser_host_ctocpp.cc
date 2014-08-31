@@ -112,7 +112,7 @@ void CefBrowserHostCToCpp::SetWindowVisibility(bool visible) {
 
 CefWindowHandle CefBrowserHostCToCpp::GetWindowHandle() {
   if (CEF_MEMBER_MISSING(struct_, get_window_handle))
-    return NULL;
+    return kNullWindowHandle;
 
   // AUTO-GENERATED CONTENT - DELETE THIS COMMENT BEFORE MODIFYING
 
@@ -125,7 +125,7 @@ CefWindowHandle CefBrowserHostCToCpp::GetWindowHandle() {
 
 CefWindowHandle CefBrowserHostCToCpp::GetOpenerWindowHandle() {
   if (CEF_MEMBER_MISSING(struct_, get_opener_window_handle))
-    return NULL;
+    return kNullWindowHandle;
 
   // AUTO-GENERATED CONTENT - DELETE THIS COMMENT BEFORE MODIFYING
 
@@ -375,8 +375,7 @@ void CefBrowserHostCToCpp::NotifyScreenInfoChanged() {
   struct_->notify_screen_info_changed(struct_);
 }
 
-void CefBrowserHostCToCpp::Invalidate(const CefRect& dirtyRect,
-    PaintElementType type) {
+void CefBrowserHostCToCpp::Invalidate(PaintElementType type) {
   if (CEF_MEMBER_MISSING(struct_, invalidate))
     return;
 
@@ -384,7 +383,6 @@ void CefBrowserHostCToCpp::Invalidate(const CefRect& dirtyRect,
 
   // Execute
   struct_->invalidate(struct_,
-      &dirtyRect,
       type);
 }
 
@@ -578,7 +576,7 @@ void CefBrowserHostCToCpp::DragSourceSystemDragEnded() {
 
 
 #ifndef NDEBUG
-template<> long CefCToCpp<CefBrowserHostCToCpp, CefBrowserHost,
+template<> base::AtomicRefCount CefCToCpp<CefBrowserHostCToCpp, CefBrowserHost,
     cef_browser_host_t>::DebugObjCt = 0;
 #endif
 

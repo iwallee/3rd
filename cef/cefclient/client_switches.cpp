@@ -22,6 +22,7 @@ const char kMultiThreadedMessageLoop[] = "multi-threaded-message-loop";
 const char kCachePath[] = "cache-path";
 const char kUrl[] = "url";
 const char kOffScreenRenderingEnabled[] = "off-screen-rendering-enabled";
+const char kOffScreenFrameRate[] = "off-screen-frame-rate";
 const char kTransparentPaintingEnabled[] = "transparent-painting-enabled";
 const char kMouseCursorChangeDisabled[] = "mouse-cursor-change-disabled";
 

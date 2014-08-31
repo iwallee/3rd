@@ -66,8 +66,7 @@ class CefBrowserHostCToCpp
   virtual void WasResized() OVERRIDE;
   virtual void WasHidden(bool hidden) OVERRIDE;
   virtual void NotifyScreenInfoChanged() OVERRIDE;
-  virtual void Invalidate(const CefRect& dirtyRect,
-      PaintElementType type) OVERRIDE;
+  virtual void Invalidate(PaintElementType type) OVERRIDE;
   virtual void SendKeyEvent(const CefKeyEvent& event) OVERRIDE;
   virtual void SendMouseClickEvent(const CefMouseEvent& event,
       MouseButtonType type, bool mouseUp, int clickCount) OVERRIDE;

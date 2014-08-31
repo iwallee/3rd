@@ -213,19 +213,6 @@ bool CefContextMenuParamsCToCpp::IsEditable() {
   return _retval?true:false;
 }
 
-bool CefContextMenuParamsCToCpp::IsSpeechInputEnabled() {
-  if (CEF_MEMBER_MISSING(struct_, is_speech_input_enabled))
-    return false;
-
-  // AUTO-GENERATED CONTENT - DELETE THIS COMMENT BEFORE MODIFYING
-
-  // Execute
-  int _retval = struct_->is_speech_input_enabled(struct_);
-
-  // Return type: bool
-  return _retval?true:false;
-}
-
 CefContextMenuParams::EditStateFlags CefContextMenuParamsCToCpp::GetEditStateFlags(
     ) {
   if (CEF_MEMBER_MISSING(struct_, get_edit_state_flags))
@@ -243,7 +230,7 @@ CefContextMenuParams::EditStateFlags CefContextMenuParamsCToCpp::GetEditStateFla
 
 
 #ifndef NDEBUG
-template<> long CefCToCpp<CefContextMenuParamsCToCpp, CefContextMenuParams,
-    cef_context_menu_params_t>::DebugObjCt = 0;
+template<> base::AtomicRefCount CefCToCpp<CefContextMenuParamsCToCpp,
+    CefContextMenuParams, cef_context_menu_params_t>::DebugObjCt = 0;
 #endif
 

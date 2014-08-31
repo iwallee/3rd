@@ -6,14 +6,14 @@
 
 #include <windowsx.h>
 
-#include "include/cef_runnable.h"
+#include "include/base/cef_bind.h"
+#include "include/wrapper/cef_closure_task.h"
 #include "cefclient/resource.h"
-#include "cefclient/util.h"
 
 // static
 CefRefPtr<OSRWindow> OSRWindow::Create(OSRBrowserProvider* browser_provider,
     bool transparent) {
-  ASSERT(browser_provider);
+  DCHECK(browser_provider);
   if (!browser_provider)
     return NULL;
 
@@ -28,7 +28,7 @@ CefRefPtr<OSRWindow> OSRWindow::From(
 
 bool OSRWindow::CreateWidget(HWND hWndParent, const RECT& rect,
                              HINSTANCE hInst, LPCTSTR className) {
-  ASSERT(hWnd_ == NULL && hDC_ == NULL && hRC_ == NULL);
+  DCHECK(hWnd_ == NULL && hDC_ == NULL && hRC_ == NULL);
 
   RegisterOSRClass(hInst, className);
   hWnd_ = ::CreateWindow(className, 0,
@@ -46,7 +46,7 @@ bool OSRWindow::CreateWidget(HWND hWndParent, const RECT& rect,
 
   drop_target_ = DropTargetWin::Create(this, hWnd_);
   HRESULT register_res = RegisterDragDrop(hWnd_, drop_target_);
-  ASSERT(register_res == S_OK);
+  DCHECK_EQ(register_res, S_OK);
   return true;
 }
 
@@ -106,9 +106,8 @@ bool OSRWindow::GetScreenPoint(CefRefPtr<CefBrowser> browser,
 void OSRWindow::OnPopupShow(CefRefPtr<CefBrowser> browser,
                             bool show) {
   if (!show) {
-    CefRect dirty_rect = renderer_.popup_rect();
     renderer_.ClearPopupRects();
-    browser->GetHost()->Invalidate(dirty_rect, PET_VIEW);
+    browser->GetHost()->Invalidate(PET_VIEW);
   }
   renderer_.OnPopupShow(browser, show);
 }
@@ -134,10 +133,7 @@ void OSRWindow::OnPaint(CefRefPtr<CefBrowser> browser,
   renderer_.OnPaint(browser, type, dirtyRects, buffer, width, height);
   if (type == PET_VIEW && !renderer_.popup_rect().IsEmpty()) {
     painting_popup_ = true;
-    CefRect client_popup_rect(0, 0,
-                              renderer_.popup_rect().width,
-                              renderer_.popup_rect().height);
-    browser->GetHost()->Invalidate(client_popup_rect, PET_POPUP);
+    browser->GetHost()->Invalidate(PET_POPUP);
     painting_popup_ = false;
   }
   renderer_.Render();
@@ -180,7 +176,7 @@ void OSRWindow::UpdateDragCursor(CefRefPtr<CefBrowser> browser,
 
 void OSRWindow::Invalidate() {
   if (!CefCurrentlyOn(TID_UI)) {
-    CefPostTask(TID_UI, NewCefRunnableMethod(this, &OSRWindow::Invalidate));
+    CefPostTask(TID_UI, base::Bind(&OSRWindow::Invalidate, this));
     return;
   }
 
@@ -192,7 +188,7 @@ void OSRWindow::Invalidate() {
 
   // Render at 30fps.
   static const int kRenderDelay = 1000 / 30;
-  CefPostDelayedTask(TID_UI, NewCefRunnableMethod(this, &OSRWindow::Render),
+  CefPostDelayedTask(TID_UI, base::Bind(&OSRWindow::Render, this),
                      kRenderDelay);
 }
 
@@ -240,7 +236,7 @@ OSRWindow::~OSRWindow() {
 }
 
 void OSRWindow::Render() {
-  ASSERT(CefCurrentlyOn(TID_UI));
+  CEF_REQUIRE_UI_THREAD();
   if (render_task_pending_)
     render_task_pending_ = false;
 
@@ -253,7 +249,7 @@ void OSRWindow::Render() {
 }
 
 void OSRWindow::EnableGL() {
-  ASSERT(CefCurrentlyOn(TID_UI));
+  CEF_REQUIRE_UI_THREAD();
 
   PIXELFORMATDESCRIPTOR pfd;
   int format;
@@ -281,7 +277,7 @@ void OSRWindow::EnableGL() {
 }
 
 void OSRWindow::DisableGL() {
-  ASSERT(CefCurrentlyOn(TID_UI));
+  CEF_REQUIRE_UI_THREAD();
 
   if (!hDC_)
     return;
@@ -700,12 +696,8 @@ LRESULT CALLBACK OSRWindow::WndProc(HWND hWnd, UINT message,
     BeginPaint(hWnd, &ps);
     rc = ps.rcPaint;
     EndPaint(hWnd, &ps);
-    if (browser.get()) {
-      browser->Invalidate(CefRect(rc.left,
-                                  rc.top,
-                                  rc.right - rc.left,
-                                  rc.bottom - rc.top), PET_VIEW);
-    }
+    if (browser.get())
+      browser->Invalidate(PET_VIEW);
     return 0;
   }
 
