@@ -53,6 +53,10 @@ struct sqlite3_api_routines {
                            int eTextRep,const char*));
   int  (*collation_needed16)(sqlite3*,void*,void(*)(void*,sqlite3*,
                              int eTextRep,const void*));
+  int  (*key)(sqlite3 *db, const void *pKey, int nKey);
+  int  (*key_v2)(sqlite3 *db, const char *zDbName, const void *pKey, int nKey);
+  int  (*rekey)(sqlite3 *db, const void *pKey, int nKey);
+  int  (*rekey_v2)(sqlite3 *db, const char *zDbName, const void *pKey, int nKey);
   const void * (*column_blob)(sqlite3_stmt*,int iCol);
   int  (*column_bytes)(sqlite3_stmt*,int iCol);
   int  (*column_bytes16)(sqlite3_stmt*,int iCol);
@@ -285,6 +289,10 @@ struct sqlite3_api_routines {
 #define sqlite3_close                  sqlite3_api->close
 #define sqlite3_collation_needed       sqlite3_api->collation_needed
 #define sqlite3_collation_needed16     sqlite3_api->collation_needed16
+#define sqlite3_key                    sqlite3_api->key
+#define sqlite3_key_v2                 sqlite3_api->key_v2
+#define sqlite3_rekey                  sqlite3_api->rekey
+#define sqlite3_rekey_v2               sqlite3_api->rekey_v2
 #define sqlite3_column_blob            sqlite3_api->column_blob
 #define sqlite3_column_bytes           sqlite3_api->column_bytes
 #define sqlite3_column_bytes16         sqlite3_api->column_bytes16
