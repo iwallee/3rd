@@ -98,7 +98,7 @@
       <ModuleDefinitionFile>win32\zlib.def</ModuleDefinitionFile>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention />
-      <ImportLibrary>$(SolutionDir)\build\$(TargetName).lib</ImportLibrary>
+      <ImportLibrary>$(SolutionDir)\build\$(ProjectName).lib</ImportLibrary>
       <ProgramDatabaseFile>$(SolutionDir)/pdb/$(TargetName).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
     </Link>
@@ -124,7 +124,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention />
-      <ImportLibrary>$(SolutionDir)\build\$(TargetName)d.lib</ImportLibrary>
+      <ImportLibrary>$(SolutionDir)\build\$(ProjectName)d.lib</ImportLibrary>
       <ProgramDatabaseFile>$(SolutionDir)/pdb/$(TargetName).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
     </Link>
