@@ -1,0 +1,1 @@
+copy from windows sdk v7.1 Samples\multimedia\directshow
