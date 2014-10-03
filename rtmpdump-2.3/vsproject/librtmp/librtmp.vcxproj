@@ -64,6 +64,7 @@
       <AdditionalLibraryDirectories>../../../openssl-1.0.1i\sdk\vs2013\lib;../../../../build</AdditionalLibraryDirectories>
       <OutputFile>$(SolutionDir)\bin\bin\$(ProjectName)d.dll</OutputFile>
       <ImportLibrary>$(SolutionDir)\build\$(TargetName)d.lib</ImportLibrary>
+      <ModuleDefinitionFile>librtmp.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -85,6 +86,7 @@
       <AdditionalLibraryDirectories>../../../openssl-1.0.1i\sdk\vs2013\lib;../../../../build</AdditionalLibraryDirectories>
       <OutputFile>$(SolutionDir)\bin\bin\$(ProjectName).dll</OutputFile>
       <ImportLibrary>$(SolutionDir)\build\$(TargetName).lib</ImportLibrary>
+      <ModuleDefinitionFile>librtmp.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -123,6 +125,9 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="librtmp.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="librtmp.def" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
