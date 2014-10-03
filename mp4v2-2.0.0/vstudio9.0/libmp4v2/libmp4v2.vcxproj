@@ -238,7 +238,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
-      <OutputFile>$(SolutionDir)\bin\bin\$(ProjectName)d.dll</OutputFile>
+      <OutputFile>$(SolutionDir)\bin\bin\Codecs/$(ProjectName)d.dll</OutputFile>
       <ImportLibrary>$(SolutionDir)\build\$(TargetName)d.lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
@@ -284,7 +284,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <SetChecksum>true</SetChecksum>
       <TargetMachine>MachineX86</TargetMachine>
-      <OutputFile>$(SolutionDir)\bin\bin\$(ProjectName).dll</OutputFile>
+      <OutputFile>$(SolutionDir)\bin\bin\Codecs/$(ProjectName).dll</OutputFile>
       <ImportLibrary>$(SolutionDir)\build\$(TargetName).lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
