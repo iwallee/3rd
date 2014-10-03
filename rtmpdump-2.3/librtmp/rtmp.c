@@ -383,7 +383,7 @@ RTMP_SetupStream(RTMP *r,
   if (sockshost->av_len)
     {
       const char *socksport = strchr(sockshost->av_val, ':');
-      char *hostname = strdup(sockshost->av_val);
+      char *hostname = _strdup(sockshost->av_val);
 
       if (socksport)
 	hostname[socksport - sockshost->av_val] = '\0';
@@ -1316,7 +1316,7 @@ ReadN(RTMP *r, char *buffer, int n)
 	    SendBytesReceived(r);
 	}
       /*RTMP_Log(RTMP_LOGDEBUG, "%s: %d bytes\n", __FUNCTION__, nBytes); */
-#ifdef _DEBUG
+#if 0
       fwrite(ptr, 1, nBytes, netstackdump_read);
 #endif
 
@@ -3527,7 +3527,7 @@ RTMPSockBuf_Send(RTMPSockBuf *sb, const char *buf, int len)
 {
   int rc;
 
-#ifdef _DEBUG
+#if 0
   fwrite(buf, 1, len, netstackdump);
 #endif
 

@@ -35,6 +35,10 @@
 #else /* !_XBOX */
 #include <winsock2.h>
 #include <ws2tcpip.h>
+#define snprintf _snprintf
+#define strcasecmp _stricmp
+#define strncasecmp _strnicmp
+#define vsnprintf _vsnprintf
 #endif
 
 #define GetSockError()	WSAGetLastError()
