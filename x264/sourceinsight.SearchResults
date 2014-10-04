@@ -1,0 +1,33 @@
+---- xia wei ping Matches (32 in 7 files) ----
+Common.h (common):    x264_picture_t  *picture;// 解码的数据结构 added by xia wei ping 2005-4-4
+Dec_cabac.c (decoder):	memset(l, 0, sizeof(int)*i_count);  // modified by xia wei ping 2005-4-10
+Dec_cabac.h (decoder):#include "common/macroblock.h"  //added by xia wei ping
+Dec_cabac.h (decoder):#include "common/predict.h"   //added by xia wei ping
+Decoder.c (decoder): * Copyright (C) 2005 xia wei ping etc.
+Decoder.c (decoder): * Authors: xia wei ping <wpxia@ict.ac.cn>
+Decoder.c (decoder):#include "common/macroblock.h"   // added by xia wei ping 2005-4-9
+Decoder.c (decoder):		sh->i_redundant_pic_cnt = 0;  // added by xia wei ping 2005-4-6
+Decoder.c (decoder):		//以下是设置序列头和图像头的部分。  added by xia wei ping 2005-4-6
+Decoder.c (decoder):       	 h->param.i_height= 16 * h->sps->i_mb_height;    // added by xia wei ping
+Decoder.c (decoder):		//其他参数是否需要有待验证 xia wei ping
+Decoder.c (decoder):        x264_macroblock_cache_init( h );// added by xia wei ping	 2005-4-7
+Decoder.c (decoder):    x264_macroblock_slice_init( h );// added by xia wei ping	 2005-4-7
+Decoder.c (decoder):       x264_frame_filter( h->param.cpu, h->fdec ); // added by xia wei ping 2005-4-14
+Macroblock.c (decoder):    */ //delete by xia wei ping
+Macroblock.c (decoder): */ // delete by xia wei ping   
+Macroblock.c (decoder):            nC = x264_mb_predict_non_zero_code( h,  0 ); //modified by xia wei ping 2005-4-8
+Macroblock.c (decoder):            nC = x264_mb_predict_non_zero_code( h, i_idx ); //modified by xia wei ping 2005-4-8
+Macroblock.c (decoder):       h->mb.non_zero_count[mb->i_mb_xy][i_idx] = i_total;  //modified by xia wei ping  2005-4-8
+Macroblock.c (decoder):                 	mb->cache.intra4x4_pred_mode[x264_scan8[i]]  = x264_mb_predict_intra4x4_mode( h, i ); // modified by xia wei ping,可能存在问题
+Macroblock.c (decoder):           // x264_mb_partition_get( mb, 0, i, 0, &i_ref, NULL, NULL );//delete by xia wei ping
+Macroblock.c (decoder):                    array_zero_set( h->dct.block[i].luma4x4, 16 );//modified by xia wei ping 可能会存在问题顺序的问题
+Macroblock.c (decoder):		 return i_mode;  // modified by xia wei ping.
+Macroblock.c (decoder):	//x264_cpu_restore( h->param.cpu );  // addded by xia wei ping 2005-4-12
+Macroblock.c (decoder):        //x264_mb_dec_mc( h );  // modified by xia wei ping 
+Macroblock.c (decoder):			*/ //modified by xia wei ping 2005-4-9
+Macroblock.c (decoder):			// h->pixf.add8x8( ctx->p_fdec[1+ch], ctx->i_fdec[1+ch], chroma ); //delete by xia wei ping
+Macroblock.c (decoder):			h->dctf.add8x8_idct( h->mb.pic.p_fdec[1+ch], h->mb.pic.i_stride[1+ch], dct4x4 ); // modified by xia wei ping 2005-4-9
+Macroblock.c (decoder):    */  // delete  by xia wei ping 2005-4-9
+Macroblock.c (decoder):	//initialize the dct block memery to 0. // added by xia wei ping 2005-4-10
+Macroblock.c (encoder):	 DECLARE_ALIGNED( int16_t, dct4x4[16][4][4], 16 );  // added by xia wei ping
+Me.c (encoder)://这一步的操作有待进一步的验证 added by xia wei ping

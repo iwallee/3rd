@@ -1,0 +1,314 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: libx264 - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSPFC.bat" with contents
+[
+@echo off
+nasmw -f win32 -DPREFIX -o .\Release\yv12_to_rgb24_mmx.obj ..\..\common\i386\yv12_to_rgb24_mmx.asm
+]
+Creating command line "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSPFC.bat"
+Creating temporary file "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSPFD.bat" with contents
+[
+@echo off
+nasm -f win32 -DPREFIX -o .\Release\sad_sse.obj ..\..\common\i386\sad_sse.asm
+]
+Creating command line "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSPFD.bat"
+Creating temporary file "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSPFE.bat" with contents
+[
+@echo off
+nasmw -f win32 -DPREFIX -o .\Release\rgb_to_yv12_mmx.obj ..\..\common\i386\rgb_to_yv12_mmx.asm
+]
+Creating command line "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSPFE.bat"
+Creating temporary file "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSPFF.bat" with contents
+[
+@echo off
+nasmw -f win32 -DPREFIX -o .\Release\quant_sse2.obj ..\..\common\i386\quant_sse2.asm
+]
+Creating command line "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSPFF.bat"
+Creating temporary file "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP100.bat" with contents
+[
+@echo off
+nasmw -f win32 -DPREFIX -o .\Release\predict-a.obj "..\..\common\i386\predict-a.asm"
+]
+Creating command line "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP100.bat"
+Creating temporary file "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP101.bat" with contents
+[
+@echo off
+nasmw -f win32 -DPREFIX -o .\Release\pixel-a.obj "..\..\common\i386\pixel-a.asm"
+]
+Creating command line "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP101.bat"
+Creating temporary file "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP102.bat" with contents
+[
+@echo off
+nasm -f win32 -DPREFIX -o .\Release\mc-a2.obj "..\..\common\i386\mc-a2.asm"
+]
+Creating command line "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP102.bat"
+Creating temporary file "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP103.bat" with contents
+[
+@echo off
+nasm -f win32 -DPREFIX -o .\Release\mc-a.obj "..\..\common\i386\mc-a.asm"
+]
+Creating command line "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP103.bat"
+Creating temporary file "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP104.bat" with contents
+[
+@echo off
+nasmw -f win32 -DPREFIX -o .\Release\dct-a.obj "..\..\common\i386\dct-a.asm"
+]
+Creating command line "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP104.bat"
+Creating temporary file "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP105.bat" with contents
+[
+@echo off
+nasmw -f win32 -DPREFIX -o .\Release\cpu-a.obj "..\..\common\i386\cpu-a.asm"
+]
+Creating command line "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP105.bat"
+Creating temporary file "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP106.tmp" with contents
+[
+/nologo /G6 /ML /W3 /GX /O2 /Ob2 /I "./common" /I "./encode" /I "./decode" /I "../../extras" /I "../.." /D "NDEBUG" /D "_LIB" /D "WIN32" /D "_MBCS" /D "__X264__" /D "ARCH_X86" /D "HAVE_MMXEXT" /D "HAVE_STDINT_H" /Fo"obj/enc_release/" /Fd"obj/enc_release/" /FD /c 
+"D:\264work\x264_sina\encoder\analyse.c"
+"D:\264work\x264_sina\encoder\cabac.c"
+"D:\264work\x264_sina\encoder\cavlc.c"
+"D:\264work\x264_sina\encoder\encoder.c"
+"D:\264work\x264_sina\encoder\eval.c"
+"D:\264work\x264_sina\encoder\macroblock.c"
+"D:\264work\x264_sina\encoder\me.c"
+"D:\264work\x264_sina\encoder\ratecontrol.c"
+"D:\264work\x264_sina\encoder\set.c"
+]
+Creating command line "xicl6.exe @C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP106.tmp" 
+Creating temporary file "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP107.tmp" with contents
+[
+/nologo /G6 /ML /W3 /GX /O2 /Ob2 /I "./common" /I "./encode" /I "./decode" /I "../../extras" /I "../.." /D "NDEBUG" /D "_LIB" /D "WIN32" /D "_MBCS" /D "__X264__" /D "ARCH_X86" /D "HAVE_MMXEXT" /D "HAVE_STDINT_H" /Fo"Release/" /Fd"Release/" /FD /c 
+"D:\264work\x264_sina\common\i386\dct-c.c"
+"D:\264work\x264_sina\common\i386\predict.c"
+"D:\264work\x264_sina\common\csp.c"
+"D:\264work\x264_sina\common\i386\mc-c.c"
+"D:\264work\x264_sina\common\mc.c"
+"D:\264work\x264_sina\common\quan.c"
+"D:\264work\x264_sina\decoder\dec_cabac.c"
+]
+Creating command line "xicl6.exe @C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP107.tmp" 
+Creating temporary file "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP108.tmp" with contents
+[
+/nologo /G6 /ML /W3 /GX /O2 /Ob2 /I "./common" /I "./encode" /I "./decode" /I "../../extras" /I "../.." /D "NDEBUG" /D "_LIB" /D "WIN32" /D "_MBCS" /D "__X264__" /D "ARCH_X86" /D "HAVE_MMXEXT" /D "HAVE_STDINT_H" /Fo"obj/core_release/" /Fd"obj/core_release/" /FD /c 
+"D:\264work\x264_sina\common\cabac.c"
+"D:\264work\x264_sina\common\common.c"
+"D:\264work\x264_sina\common\cpu.c"
+"D:\264work\x264_sina\common\dct.c"
+"D:\264work\x264_sina\common\frame.c"
+"D:\264work\x264_sina\common\macroblock.c"
+"D:\264work\x264_sina\common\mdate.c"
+"D:\264work\x264_sina\common\pixel.c"
+"D:\264work\x264_sina\common\predict.c"
+]
+Creating command line "xicl6.exe @C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP108.tmp" 
+Creating temporary file "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP109.tmp" with contents
+[
+/nologo /G6 /ML /W3 /GX /O2 /Ob2 /I "./common" /I "./encode" /I "./decode" /I "../../extras" /I "../.." /D "NDEBUG" /D "_LIB" /D "WIN32" /D "_MBCS" /D "__X264__" /D "ARCH_X86" /D "HAVE_MMXEXT" /D "HAVE_STDINT_H" /Fo"obj/dec_release/" /Fd"obj/dec_release/" /FD /c 
+"D:\264work\x264_sina\decoder\decoder.c"
+"D:\264work\x264_sina\decoder\macroblock.c"
+"D:\264work\x264_sina\decoder\set.c"
+"D:\264work\x264_sina\decoder\vlc.c"
+]
+Creating command line "xicl6.exe @C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP109.tmp" 
+Creating temporary file "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP10A.tmp" with contents
+[
+/nologo /G6 /ML /W3 /GX /O2 /Ob2 /I "./common" /I "./encode" /I "./decode" /I "../../extras" /I "../.." /D "NDEBUG" /D "_LIB" /D "WIN32" /D "_MBCS" /D "__X264__" /D "ARCH_X86" /D "HAVE_MMXEXT" /D "HAVE_STDINT_H" /Fo"obj/util_release/" /Fd"obj/util_release/" /FD /c 
+"D:\264work\x264_sina\extras\getopt.c"
+]
+Creating command line "xicl6.exe @C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP10A.tmp" 
+Performing Custom Build Step on ..\..\common\i386\yv12_to_rgb24_mmx.asm
+Performing Custom Build Step on ..\..\common\i386\sad_sse.asm
+Performing Custom Build Step on ..\..\common\i386\rgb_to_yv12_mmx.asm
+Performing Custom Build Step on ..\..\common\i386\quant_sse2.asm
+Performing Custom Build Step on "..\..\common\i386\predict-a.asm"
+Assembly "..\..\common\i386\pixel-a.asm"
+Performing Custom Build Step on "..\..\common\i386\mc-a2.asm"
+Assembly "..\..\common\i386\mc-a.asm"
+Assembly "..\..\common\i386\dct-a.asm"
+Assembly "..\..\common\i386\cpu-a.asm"
+Creating temporary file "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP113.tmp" with contents
+[
+/nologo /out:"bin/libx264.lib" 
+.\obj\enc_release\analyse.obj
+.\obj\enc_release\cabac.obj
+.\obj\enc_release\cavlc.obj
+.\obj\enc_release\encoder.obj
+.\obj\enc_release\eval.obj
+.\obj\enc_release\macroblock.obj
+.\obj\enc_release\me.obj
+.\obj\enc_release\ratecontrol.obj
+.\obj\enc_release\set.obj
+".\Release\dct-c.obj"
+.\Release\predict.obj
+.\obj\core_release\cabac.obj
+.\obj\core_release\common.obj
+.\obj\core_release\cpu.obj
+.\Release\csp.obj
+.\obj\core_release\dct.obj
+.\obj\core_release\frame.obj
+.\obj\core_release\macroblock.obj
+".\Release\mc-c.obj"
+.\Release\mc.obj
+.\obj\core_release\mdate.obj
+.\obj\core_release\pixel.obj
+.\obj\core_release\predict.obj
+.\Release\quan.obj
+.\Release\dec_cabac.obj
+.\obj\dec_release\decoder.obj
+.\obj\dec_release\macroblock.obj
+.\obj\dec_release\set.obj
+.\obj\dec_release\vlc.obj
+.\obj\util_release\getopt.obj
+".\Release\cpu-a.obj"
+".\Release\dct-a.obj"
+".\Release\mc-a.obj"
+".\Release\mc-a2.obj"
+".\Release\pixel-a.obj"
+".\Release\predict-a.obj"
+.\Release\quant_sse2.obj
+.\Release\rgb_to_yv12_mmx.obj
+.\Release\sad_sse.obj
+.\Release\yv12_to_rgb24_mmx.obj
+]
+Creating command line "xilink6.exe -lib @C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP113.tmp"
+<h3>Output Window</h3>
+Compiling...
+analyse.c
+cabac.c
+cavlc.c
+encoder.c
+D:\264work\x264_sina\encoder\encoder.c(1138): warning #177: label "do_encode" was declared but never referenced
+  do_encode:
+  ^
+
+eval.c
+D:\264work\x264_sina\encoder\eval.c(143): warning #1572: floating-point equality and inequality comparisons are unreliable
+      else if( strmatch(next, "eq"    ) ) d= d == d2 ? 1.0 : 0.0;
+                                               ^
+
+macroblock.c
+me.c
+ratecontrol.c
+D:\264work\x264_sina\encoder\ratecontrol.c(736): warning #144: a value of type "void *" cannot be used to initialize an entity of type "double (*)(void *, double)"
+          (void *)qscale2bits,
+          ^
+
+set.c
+Compiling...
+dct-c.c
+predict.c
+csp.c
+mc-c.c
+mc.c
+quan.c
+dec_cabac.c
+Compiling...
+cabac.c
+common.c
+cpu.c
+dct.c
+frame.c
+macroblock.c
+D:\264work\x264_sina\common\macroblock.c(906): warning #175: subscript out of range
+          h->mb.map_col_to_list0[-1] = -1;
+                                ^
+
+D:\264work\x264_sina\common\macroblock.c(907): warning #175: subscript out of range
+          h->mb.map_col_to_list0[-2] = -2;
+                                ^
+
+mdate.c
+pixel.c
+predict.c
+Compiling...
+decoder.c
+D:\264work\x264_sina\decoder\decoder.c(923): warning #266: function declared implicitly
+          x264_macroblock_decode_lostcache_load( h, i_mb_x, i_mb_y );// initialize the cache data structure 2005-4-9
+          ^
+
+D:\264work\x264_sina\decoder\decoder.c(925): warning #266: function declared implicitly
+          x264_macroblock_decode_lostskip( h );           
+          ^
+
+D:\264work\x264_sina\decoder\decoder.c(978): warning #147: declaration is incompatible with "void x264_decoder_close(void *)" (declared at line 283 of "../../x264.h")
+  void    x264_decoder_close  ( x264_t *h )
+          ^
+
+macroblock.c
+set.c
+vlc.c
+Compiling...
+getopt.c
+Creating library...
+xilib: executing 'D:\DEVELO~1\MICROS~1\VC98\Bin\lib.exe'
+<h3>
+--------------------Configuration: x264 - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP114.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /I "./common" /I "./encode" /I "./decode" /I "../../extras" /I "../.." /D "NDEBUG" /D "_CONSOLE" /D "WIN32" /D "_MBCS" /D "__X264__" /D "HAVE_STDINT_H" /FR"obj/x264_Release/" /Fp"obj/x264_Release/x264.pch" /YX /Fo"obj/x264_Release/" /Fd"obj/x264_Release/" /FD /c 
+"D:\264work\x264_sina\x264.c"
+]
+Creating command line "xicl6.exe @C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP114.tmp" 
+Creating temporary file "C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP115.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no /pdb:"obj/x264_Release/x264.pdb" /machine:I386 /out:"bin/x264.exe" 
+.\obj\x264_Release\x264.obj
+.\bin\libx264.lib
+]
+Creating command line "xilink6.exe @C:\DOCUME~1\WINDOW~1\LOCALS~1\Temp\RSP115.tmp"
+<h3>Output Window</h3>
+Compiling...
+x264.c
+D:\264work\x264_sina\x264.c(634): warning #556: a value of type "void *(__cdecl *)(void)" cannot be assigned to an entity of type "void (__cdecl *)(void *, char *, int, char *, int *, int *)"
+   DeCodec = (void* (__cdecl*)(void))GetProcAddress(hDllHandle, "DeCodec");
+           ^
+
+D:\264work\x264_sina\x264.c(635): warning #556: a value of type "void *(__cdecl *)(void)" cannot be assigned to an entity of type "void (__cdecl *)(void *)"
+   x264_decode_close = (void* (__cdecl*)(void))GetProcAddress(hDllHandle, "x264_decode_close");
+                     ^
+
+D:\264work\x264_sina\x264.c(663): warning #1011: missing return statement at end of non-void function "Decode"
+  }
+  ^
+
+D:\264work\x264_sina\x264.c(707): warning #556: a value of type "void *(__cdecl *)(int)" cannot be assigned to an entity of type "int (__cdecl *)(void *, char *, int, char *, int *, int *)"
+   EnCodec = (void* (__cdecl*)(int))GetProcAddress(hDllHandle, "EnCode");
+           ^
+
+D:\264work\x264_sina\x264.c(708): warning #556: a value of type "void *(__cdecl *)(void)" cannot be assigned to an entity of type "void (__cdecl *)(void *)"
+   x264_encoder_close = (void* (__cdecl*)(void))GetProcAddress(hDllHandle, "encoder_close");
+                      ^
+
+D:\264work\x264_sina\x264.c(709): warning #556: a value of type "void *(__cdecl *)(int)" cannot be assigned to an entity of type "int (__cdecl *)(int, int, int, void *)"
+      SetFrameInfoInitial=(void* (__cdecl*)(int))GetProcAddress(hDllHandle, "SetFrameInfo");
+                         ^
+
+D:\264work\x264_sina\x264.c(710): warning #556: a value of type "void *(__cdecl *)(int)" cannot be assigned to an entity of type "int (__cdecl *)(int, void *)"
+   SetFrmQuant=(void* (__cdecl*)(int))GetProcAddress(hDllHandle, "SetFrmQuant");
+              ^
+
+D:\264work\x264_sina\x264.c(718): warning #556: a value of type "void *(__cdecl *)(void)" cannot be assigned to an entity of type "void (__cdecl *)(void *, char *, int, char *, int *, int *)"
+   DeCodec = (void* (__cdecl*)(void))GetProcAddress(hDllHandle, "DeCode");
+           ^
+
+D:\264work\x264_sina\x264.c(719): warning #556: a value of type "void *(__cdecl *)(void)" cannot be assigned to an entity of type "void (__cdecl *)(void *)"
+   x264_decode_close = (void* (__cdecl*)(void))GetProcAddress(hDllHandle, "decode_close");
+                     ^
+
+Linking...
+xilink6: executing 'D:\DEVELO~1\MICROS~1\VC98\Bin\link.exe'
+
+
+
+<h3>Results</h3>
+x264.exe - 0 error(s), 17 warning(s)
+</pre>
+</body>
+</html>
