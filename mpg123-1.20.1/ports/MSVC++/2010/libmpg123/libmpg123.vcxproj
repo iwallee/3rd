@@ -142,10 +142,10 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_Generic|Win32'">Debug\</IntDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_Generic|Win32'">$(ProjectDir)Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_Generic|Win32'">Release\</IntDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_Generic_Dll|Win32'">$(SolutionDir)\build\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_Generic_Dll|Win32'">$(SolutionDir)\build\$(Configuration)\$(ProjectName)\</IntDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_Generic_Dll|Win32'">$(SolutionDir)\build\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_Generic_Dll|Win32'">$(SolutionDir)\build\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_Generic_Dll|Win32'">$(SolutionDir)\sdk\build\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_Generic_Dll|Win32'">$(SolutionDir)\sdk\build\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_Generic_Dll|Win32'">$(SolutionDir)\sdk\build\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_Generic_Dll|Win32'">$(SolutionDir)\sdk\build\$(Configuration)\$(ProjectName)\</IntDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_x86|Win32'">$(ProjectDir)Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_x86|Win32'">Debug\</IntDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_x86|Win32'">$(ProjectDir)Release\</OutDir>
@@ -225,14 +225,14 @@
       <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
-      <OutputFile>$(SolutionDir)\bin\bin\$(ProjectName)d.dll</OutputFile>
+      <OutputFile>$(SolutionDir)\sdk\bin\$(ProjectName)d.dll</OutputFile>
       <AdditionalLibraryDirectories>$(ProjectDir)\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AssemblyDebug>true</AssemblyDebug>
       <BaseAddress>0x63000000</BaseAddress>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <FixedBaseAddress>true</FixedBaseAddress>
-      <ImportLibrary>$(SolutionDir)\build\$(TargetName)d.lib</ImportLibrary>
+      <ImportLibrary>$(SolutionDir)\sdk\lib\$(TargetName)d.lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_Generic_Dll|Win32'">
@@ -259,11 +259,12 @@
       <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
-      <OutputFile>$(SolutionDir)\bin\bin\$(ProjectName).dll</OutputFile>
+      <OutputFile>$(SolutionDir)\sdk\bin\$(ProjectName).dll</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <BaseAddress>0x63000000</BaseAddress>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <FixedBaseAddress>true</FixedBaseAddress>
+      <ImportLibrary>$(SolutionDir)\sdk\lib\$(TargetName).lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_x86|Win32'">

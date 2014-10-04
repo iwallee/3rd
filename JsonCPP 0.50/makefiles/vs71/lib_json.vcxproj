@@ -57,12 +57,12 @@
     <_ProjectFileVersion>11.0.60610.1</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)\build\</OutDir>
-    <IntDir>$(SolutionDir)\build\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)\sdk\build\</OutDir>
+    <IntDir>$(SolutionDir)\sdk\build\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)\build\</OutDir>
-    <IntDir>$(SolutionDir)\build\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)\sdk\build\</OutDir>
+    <IntDir>$(SolutionDir)\sdk\build\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='dummy|Win32'">
     <OutDir>$(Configuration)\</OutDir>
@@ -86,7 +86,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
     <Lib>
-      <OutputFile>$(SolutionDir)\build\$(ProjectName)d.lib</OutputFile>
+      <OutputFile>$(SolutionDir)\sdk\lib\$(ProjectName)d.lib</OutputFile>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -106,7 +106,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Lib>
-      <OutputFile>$(SolutionDir)\build\$(ProjectName).lib</OutputFile>
+      <OutputFile>$(SolutionDir)\sdk\lib\$(ProjectName).lib</OutputFile>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='dummy|Win32'">

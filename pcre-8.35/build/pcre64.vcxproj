@@ -68,12 +68,12 @@
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)\build\</OutDir>
-    <IntDir>$(SolutionDir)\build\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)\sdk\build\</OutDir>
+    <IntDir>$(SolutionDir)\sdk\build\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)\build\</OutDir>
-    <IntDir>$(SolutionDir)\build\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)\sdk\build\</OutDir>
+    <IntDir>$(SolutionDir)\sdk\build\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -105,7 +105,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Lib>
-      <OutputFile>$(SolutionDir)\build\$(ProjectName)d.lib</OutputFile>
+      <OutputFile>$(SolutionDir)\sdk\lib\$(ProjectName)d.lib</OutputFile>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -138,7 +138,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Lib>
-      <OutputFile>$(SolutionDir)\build\$(ProjectName).lib</OutputFile>
+      <OutputFile>$(SolutionDir)\sdk\lib\$(ProjectName).lib</OutputFile>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">

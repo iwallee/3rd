@@ -41,13 +41,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)\build\</OutDir>
-    <IntDir>$(SolutionDir)\build\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)\sdk\build\</OutDir>
+    <IntDir>$(SolutionDir)\sdk\build\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)\build\</OutDir>
-    <IntDir>$(SolutionDir)\build\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)\sdk\build\</OutDir>
+    <IntDir>$(SolutionDir)\sdk\build\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -61,9 +61,9 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>../../../openssl-1.0.1i\sdk\vs2013\lib;../../../../build</AdditionalLibraryDirectories>
-      <OutputFile>$(SolutionDir)\bin\bin\$(ProjectName)d.dll</OutputFile>
-      <ImportLibrary>$(SolutionDir)\build\$(TargetName)d.lib</ImportLibrary>
+      <AdditionalLibraryDirectories>../../../openssl-1.0.1i\sdk\vs2013\lib;../../../sdk/lib</AdditionalLibraryDirectories>
+      <OutputFile>$(SolutionDir)\sdk\bin\$(ProjectName)d.dll</OutputFile>
+      <ImportLibrary>$(SolutionDir)\sdk\lib\$(TargetName)d.lib</ImportLibrary>
       <ModuleDefinitionFile>librtmp.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
@@ -83,9 +83,9 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>../../../openssl-1.0.1i\sdk\vs2013\lib;../../../../build</AdditionalLibraryDirectories>
-      <OutputFile>$(SolutionDir)\bin\bin\$(ProjectName).dll</OutputFile>
-      <ImportLibrary>$(SolutionDir)\build\$(TargetName).lib</ImportLibrary>
+      <AdditionalLibraryDirectories>../../../openssl-1.0.1i\sdk\vs2013\lib;../../../sdk/lib</AdditionalLibraryDirectories>
+      <OutputFile>$(SolutionDir)\sdk\bin\$(ProjectName).dll</OutputFile>
+      <ImportLibrary>$(SolutionDir)\sdk\lib\$(TargetName).lib</ImportLibrary>
       <ModuleDefinitionFile>librtmp.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>

@@ -42,13 +42,13 @@
     <_ProjectFileVersion>11.0.60610.1</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)\build\</OutDir>
-    <IntDir>$(SolutionDir)\build\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)\sdk\build\</OutDir>
+    <IntDir>$(SolutionDir)\sdk\build\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)\build\</OutDir>
-    <IntDir>$(SolutionDir)\build\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)\sdk\build\</OutDir>
+    <IntDir>$(SolutionDir)\sdk\build\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -98,7 +98,7 @@
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <Lib>
-      <OutputFile>$(SolutionDir)\build\$(TargetName).lib</OutputFile>
+      <OutputFile>$(SolutionDir)\sdk\lib\$(TargetName).lib</OutputFile>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -143,7 +143,7 @@
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <Lib>
-      <OutputFile>$(SolutionDir)\build\$(TargetName)d.lib</OutputFile>
+      <OutputFile>$(SolutionDir)\sdk\lib\$(TargetName)d.lib</OutputFile>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>

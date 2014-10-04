@@ -167,8 +167,8 @@
     <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)\build\</OutDir>
-    <IntDir>$(SolutionDir)\build\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)\sdk\build\</OutDir>
+    <IntDir>$(SolutionDir)\sdk\build\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Static (MTd)|Win32'">
@@ -176,8 +176,8 @@
     <IntDir>..\..\obj\Windows-$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)\build\</OutDir>
-    <IntDir>$(SolutionDir)\build\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)\sdk\build\</OutDir>
+    <IntDir>$(SolutionDir)\sdk\build\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Static (MT)|Win32'">
@@ -238,8 +238,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
-      <OutputFile>$(SolutionDir)\bin\bin\Codecs/$(ProjectName)d.dll</OutputFile>
-      <ImportLibrary>$(SolutionDir)\build\$(TargetName)d.lib</ImportLibrary>
+      <OutputFile>$(SolutionDir)\sdk\bin\$(ProjectName)d.dll</OutputFile>
+      <ImportLibrary>$(SolutionDir)\sdk\lib\$(TargetName)d.lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Static (MTd)|Win32'">
@@ -284,8 +284,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <SetChecksum>true</SetChecksum>
       <TargetMachine>MachineX86</TargetMachine>
-      <OutputFile>$(SolutionDir)\bin\bin\Codecs/$(ProjectName).dll</OutputFile>
-      <ImportLibrary>$(SolutionDir)\build\$(TargetName).lib</ImportLibrary>
+      <OutputFile>$(SolutionDir)\sdk\bin\$(ProjectName).dll</OutputFile>
+      <ImportLibrary>$(SolutionDir)\sdk\lib\$(TargetName).lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Static (MT)|Win32'">

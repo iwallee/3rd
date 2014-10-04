@@ -42,13 +42,13 @@
     <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)\build\</OutDir>
-    <IntDir>$(SolutionDir)\build\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)\sdk\build\</OutDir>
+    <IntDir>$(SolutionDir)\sdk\build\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)\build\</OutDir>
-    <IntDir>$(SolutionDir)\build\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)\sdk\build\</OutDir>
+    <IntDir>$(SolutionDir)\sdk\build\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -82,12 +82,12 @@
     <Link>
       <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(SolutionDir)\bin\bin/Codecs/libfaad2d.dll</OutputFile>
+      <OutputFile>$(SolutionDir)\sdk\bin/libfaad2d.dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ModuleDefinitionFile>.\libfaad2.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\DebugDLL/libfaad2.pdb</ProgramDatabaseFile>
-      <ImportLibrary>$(SolutionDir)\build/libfaad2d.lib</ImportLibrary>
+      <ImportLibrary>$(SolutionDir)\sdk\lib/libfaad2d.lib</ImportLibrary>
       <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -123,11 +123,11 @@
     </ResourceCompile>
     <Link>
       <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
-      <OutputFile>$(SolutionDir)\bin\bin/Codecs/libfaad2.dll</OutputFile>
+      <OutputFile>$(SolutionDir)\sdk\bin/libfaad2.dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ModuleDefinitionFile>.\libfaad2.def</ModuleDefinitionFile>
       <ProgramDatabaseFile>.\ReleaseDLL/libfaad2.pdb</ProgramDatabaseFile>
-      <ImportLibrary>$(SolutionDir)\build/libfaad2.lib</ImportLibrary>
+      <ImportLibrary>$(SolutionDir)\sdk\lib/libfaad2.lib</ImportLibrary>
       <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>

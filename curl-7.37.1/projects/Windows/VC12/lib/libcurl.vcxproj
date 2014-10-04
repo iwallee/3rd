@@ -273,11 +273,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='DLL Debug|Win32'">$(SolutionDir)\build\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='DLL Debug|Win32'">$(SolutionDir)\build\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='DLL Debug|Win32'">$(SolutionDir)\sdk\build\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='DLL Debug|Win32'">$(SolutionDir)\sdk\build\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='DLL Debug|Win32'">false</LinkIncremental>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='DLL Release|Win32'">$(SolutionDir)\build\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='DLL Release|Win32'">$(SolutionDir)\build\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='DLL Release|Win32'">$(SolutionDir)\sdk\build\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='DLL Release|Win32'">$(SolutionDir)\sdk\build\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='DLL Release|Win32'">false</LinkIncremental>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='LIB Debug|Win32'">..\..\..\..\build\Win32\VC12\$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='LIB Debug|Win32'">$(OutDir)lib\</IntDir>
@@ -359,7 +359,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>ws2_32.lib;wldap32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(SolutionDir)\bin\bin\$(ProjectName)d.dll</OutputFile>
+      <OutputFile>$(SolutionDir)\sdk\bin\$(ProjectName)d.dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ManifestFile>$(IntDir)$(TargetFileName).intermediate.manifest</ManifestFile>
@@ -368,7 +368,7 @@
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
-      <ImportLibrary>$(SolutionDir)\build\$(TargetName)d.lib</ImportLibrary>
+      <ImportLibrary>$(SolutionDir)\sdk\lib\$(TargetName)d.lib</ImportLibrary>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <Bscmake>
@@ -403,14 +403,14 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>ws2_32.lib;wldap32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(SolutionDir)\bin\bin\$(ProjectName).dll</OutputFile>
+      <OutputFile>$(SolutionDir)\sdk\bin\$(ProjectName).dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ManifestFile>$(IntDir)$(TargetFileName).intermediate.manifest</ManifestFile>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
-      <ImportLibrary>$(SolutionDir)\build\$(TargetName).lib</ImportLibrary>
+      <ImportLibrary>$(SolutionDir)\sdk\lib\$(TargetName).lib</ImportLibrary>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <Bscmake>

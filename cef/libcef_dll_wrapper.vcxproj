@@ -49,8 +49,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <ExecutablePath>$(ExecutablePath);$(MSBuildProjectDirectory)\.\bin\;$(MSBuildProjectDirectory)\.\bin\</ExecutablePath>
-    <OutDir>$(SolutionDir)\build\</OutDir>
-    <IntDir>$(SolutionDir)\build\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)\sdk\build\</OutDir>
+    <IntDir>$(SolutionDir)\sdk\build\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
@@ -79,7 +79,7 @@
     <Lib>
       <AdditionalLibraryDirectories>C:/Program Files (x86)/Windows Kits/8.0/Lib/win8/um/x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>/ignore:4221 %(AdditionalOptions)</AdditionalOptions>
-      <OutputFile>$(SolutionDir)\build\$(ProjectName)d.lib</OutputFile>
+      <OutputFile>$(SolutionDir)\sdk\lib\$(ProjectName)d.lib</OutputFile>
       <TargetMachine>MachineX86</TargetMachine>
     </Lib>
     <Link>
@@ -188,7 +188,7 @@
     <Lib>
       <AdditionalLibraryDirectories>C:/Program Files (x86)/Windows Kits/8.0/Lib/win8/um/x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>/ignore:4221 %(AdditionalOptions)</AdditionalOptions>
-      <OutputFile>$(SolutionDir)\build\$(ProjectName).lib</OutputFile>
+      <OutputFile>$(SolutionDir)\sdk\lib\$(ProjectName).lib</OutputFile>
       <TargetMachine>MachineX86</TargetMachine>
     </Lib>
     <Link>

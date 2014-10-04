@@ -62,21 +62,21 @@
     <_ProjectFileVersion>11.0.60610.1</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DLL Release|Win32'">
-    <OutDir>$(SolutionDir)\build\</OutDir>
-    <IntDir>$(SolutionDir)\build\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)\sdk\build\</OutDir>
+    <IntDir>$(SolutionDir)\sdk\build\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DLL Debug|Win32'">
-    <OutDir>$(SolutionDir)\build\</OutDir>
-    <IntDir>$(SolutionDir)\build\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)\sdk\build\</OutDir>
+    <IntDir>$(SolutionDir)\sdk\build\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='LIB Release|Win32'">
     <OutDir>$(SolutionDir)\build\</OutDir>
     <IntDir>$(SolutionDir)\build\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='LIB Debug|Win32'">
-    <OutDir>$(SolutionDir)\build\</OutDir>
-    <IntDir>$(SolutionDir)\build\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)\sdk\build\</OutDir>
+    <IntDir>$(SolutionDir)\sdk\build\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DLL Release|Win32'">
     <ClCompile>
@@ -94,11 +94,11 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <OutputFile>$(SolutionDir)\bin\bin\$(ProjectName)1.dll</OutputFile>
+      <OutputFile>$(SolutionDir)\sdk\bin\$(ProjectName)1.dll</OutputFile>
       <ModuleDefinitionFile>win32\zlib.def</ModuleDefinitionFile>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention />
-      <ImportLibrary>$(SolutionDir)\build\$(ProjectName)1.lib</ImportLibrary>
+      <ImportLibrary>$(SolutionDir)\sdk\lib\$(ProjectName)1.lib</ImportLibrary>
       <ProgramDatabaseFile>$(SolutionDir)/pdb/$(TargetName).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
     </Link>
@@ -119,12 +119,12 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <OutputFile>$(SolutionDir)\bin\bin\$(ProjectName)1d.dll</OutputFile>
+      <OutputFile>$(SolutionDir)\sdk\bin\$(ProjectName)1d.dll</OutputFile>
       <ModuleDefinitionFile>win32\zlib.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention />
-      <ImportLibrary>$(SolutionDir)\build\$(ProjectName)1d.lib</ImportLibrary>
+      <ImportLibrary>$(SolutionDir)\sdk\lib\$(ProjectName)1d.lib</ImportLibrary>
       <ProgramDatabaseFile>$(SolutionDir)/pdb/$(TargetName).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
     </Link>

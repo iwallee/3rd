@@ -42,13 +42,13 @@
     <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)\build\</OutDir>
-    <IntDir>$(SolutionDir)\build\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)\sdk\build\</OutDir>
+    <IntDir>$(SolutionDir)\sdk\build\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)\build\</OutDir>
-    <IntDir>$(SolutionDir)\build\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)\sdk\build\</OutDir>
+    <IntDir>$(SolutionDir)\sdk\build\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -81,11 +81,11 @@
     <Link>
       <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(SolutionDir)\bin\bin/Codecs/libfaac.dll</OutputFile>
+      <OutputFile>$(SolutionDir)\sdk\bin/libfaac.dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ModuleDefinitionFile>.\libfaac.def</ModuleDefinitionFile>
       <ProgramDatabaseFile>.\ReleaseDLL/libfaac.pdb</ProgramDatabaseFile>
-      <ImportLibrary>$(SolutionDir)\build/libfaac.lib</ImportLibrary>
+      <ImportLibrary>$(SolutionDir)\sdk\lib/libfaac.lib</ImportLibrary>
       <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -119,12 +119,12 @@
     <Link>
       <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(SolutionDir)\bin\bin/Codecs/libfaacd.dll</OutputFile>
+      <OutputFile>$(SolutionDir)\sdk\bin/libfaacd.dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ModuleDefinitionFile>.\libfaac.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\DebugDLL/libfaac.pdb</ProgramDatabaseFile>
-      <ImportLibrary>$(SolutionDir)\build/libfaacd.lib</ImportLibrary>
+      <ImportLibrary>$(SolutionDir)\sdk\lib/libfaacd.lib</ImportLibrary>
       <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
