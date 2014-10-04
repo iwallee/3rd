@@ -13,3 +13,9 @@
 /FreeImage3160Win32/FreeImage/Wrapper/FreeImagePlus/Release
 /curl-7.34.0/vs/vc12/lib/*.user
 /*.suo
+/sdk/build/DLL Release
+/sdk/build/Release
+/sdk/build/Release_Generic_Dll
+/sdk/build/Debug
+/sdk/build/Debug_Generic_Dll
+/sdk/build/DLL Debug
