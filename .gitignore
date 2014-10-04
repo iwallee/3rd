@@ -6,18 +6,17 @@
 /curl-7.34.0/build/lib/Debug
 /curl-7.34.0/vs/vc12/lib/Release
 /curl-7.34.0/vs/vc12/lib/Debug
-/FreeImage3154/FreeImage/Wrapper/FreeImagePlus/Debug/vc120.idb
 /FreeImage3154/FreeImage/Wrapper/FreeImagePlus/dist/FreeImagePlus.h
 /FreeImage3160Win32/FreeImage/Wrapper/FreeImagePlus/Debug
 /FreeImage3160Win32/FreeImage/Wrapper/FreeImagePlus/Release
 *.user
 *.suo
-/*.sdf
+*.sdf
+*.idb
 /sdk/build/DLL Release
 /sdk/build/Release
 /sdk/build/Release_Generic_Dll
 /sdk/build/Debug
 /sdk/build/Debug_Generic_Dll
 /sdk/build/DLL Debug
-
 
