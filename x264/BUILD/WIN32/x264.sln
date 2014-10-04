@@ -7,8 +7,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libx264", "libx264.vcxproj"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "x264", "x264.vcxproj", "{D87C469B-8297-4E61-92CF-652D4AA4F9C1}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libx264dll", "X264DLL\X264DLL.vcxproj", "{5FCC3DE2-09DA-4397-BB84-75FD724406FD}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -23,10 +21,6 @@ Global
 		{D87C469B-8297-4E61-92CF-652D4AA4F9C1}.Debug|Win32.Build.0 = Debug|Win32
 		{D87C469B-8297-4E61-92CF-652D4AA4F9C1}.Release|Win32.ActiveCfg = Release|Win32
 		{D87C469B-8297-4E61-92CF-652D4AA4F9C1}.Release|Win32.Build.0 = Release|Win32
-		{5FCC3DE2-09DA-4397-BB84-75FD724406FD}.Debug|Win32.ActiveCfg = Debug|Win32
-		{5FCC3DE2-09DA-4397-BB84-75FD724406FD}.Debug|Win32.Build.0 = Debug|Win32
-		{5FCC3DE2-09DA-4397-BB84-75FD724406FD}.Release|Win32.ActiveCfg = Release|Win32
-		{5FCC3DE2-09DA-4397-BB84-75FD724406FD}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

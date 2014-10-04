@@ -82,12 +82,12 @@
     <Link>
       <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(SolutionDir)\sdk\bin/libfaad2d.dll</OutputFile>
+      <OutputFile>$(SolutionDir)\sdk\bin/libfaadd.dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ModuleDefinitionFile>.\libfaad2.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\DebugDLL/libfaad2.pdb</ProgramDatabaseFile>
-      <ImportLibrary>$(SolutionDir)\sdk\lib/libfaad2d.lib</ImportLibrary>
+      <ImportLibrary>$(SolutionDir)\sdk\lib/libfaad2.lib</ImportLibrary>
       <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -123,11 +123,11 @@
     </ResourceCompile>
     <Link>
       <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
-      <OutputFile>$(SolutionDir)\sdk\bin/libfaad2.dll</OutputFile>
+      <OutputFile>$(SolutionDir)\sdk\bin/libfaad.dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ModuleDefinitionFile>.\libfaad2.def</ModuleDefinitionFile>
       <ProgramDatabaseFile>.\ReleaseDLL/libfaad2.pdb</ProgramDatabaseFile>
-      <ImportLibrary>$(SolutionDir)\sdk\lib/libfaad2.lib</ImportLibrary>
+      <ImportLibrary>$(SolutionDir)\sdk\lib/libfaad.lib</ImportLibrary>
       <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
