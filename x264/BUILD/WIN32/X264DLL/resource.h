@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Developer Studio generated include file.
-// Used by UCVCodec2.rc
+// Used by x264.rc
 //
 
 // Next default values for new objects

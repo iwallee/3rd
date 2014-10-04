@@ -1,0 +1,22 @@
+LIBRARY  libx264.dll
+EXPORTS
+
+	x264_param_default  @1
+	x264_picture_alloc  @2
+	x264_picture_clean  @3
+
+	x264_nal_encode     @4
+	x264_nal_decode	    @5	
+
+	x264_encoder_open   @6
+	x264_set_encode_info  @7
+	SetFrameInfoInitial   @8
+	SetFrameQuant  @9
+	x264_encode_frame @10
+	x264_encoder_close @11
+
+	x264_decoder_open @12
+	x264_decoder_decode @13
+	x264_decoder_close @14
+	DeCodec @15
+	x264_decode_close @16
