@@ -83,6 +83,7 @@
       <ImportLibrary>$(SolutionDir)\sdk\lib\$(TargetName).lib</ImportLibrary>
       <ModuleDefinitionFile>x264dll/x264.def</ModuleDefinitionFile>
       <OutputFile>$(SolutionDir)\sdk\bin\$(ProjectName).dll</OutputFile>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -114,6 +115,7 @@
       <ModuleDefinitionFile>x264dll/x264.def</ModuleDefinitionFile>
       <ImportLibrary>$(SolutionDir)\sdk\lib\$(TargetName)d.lib</ImportLibrary>
       <OutputFile>$(SolutionDir)\sdk\bin\$(ProjectName)d.dll</OutputFile>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
