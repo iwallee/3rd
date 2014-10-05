@@ -84,6 +84,7 @@
       <ModuleDefinitionFile>x264dll/x264.def</ModuleDefinitionFile>
       <OutputFile>$(SolutionDir)\sdk\bin\$(ProjectName).dll</OutputFile>
       <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -116,6 +117,8 @@
       <ImportLibrary>$(SolutionDir)\sdk\lib\$(TargetName)d.lib</ImportLibrary>
       <OutputFile>$(SolutionDir)\sdk\bin\$(ProjectName)d.dll</OutputFile>
       <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(TargetDir)$(TargetName)d.pdb</ProgramDatabaseFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

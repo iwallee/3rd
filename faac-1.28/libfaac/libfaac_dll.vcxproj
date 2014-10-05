@@ -84,9 +84,10 @@
       <OutputFile>$(SolutionDir)\sdk\bin/libfaac.dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ModuleDefinitionFile>.\libfaac.def</ModuleDefinitionFile>
-      <ProgramDatabaseFile>.\ReleaseDLL/libfaac.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
       <ImportLibrary>$(SolutionDir)\sdk\lib/libfaac.lib</ImportLibrary>
       <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -123,7 +124,7 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ModuleDefinitionFile>.\libfaac.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>.\DebugDLL/libfaac.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>$(TargetDir)$(TargetName)d.pdb</ProgramDatabaseFile>
       <ImportLibrary>$(SolutionDir)\sdk\lib/libfaacd.lib</ImportLibrary>
       <SubSystem>Windows</SubSystem>
     </Link>
