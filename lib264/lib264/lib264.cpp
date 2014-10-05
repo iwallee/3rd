@@ -47,11 +47,11 @@ extern "C"
 }
 
 extern "C" {
-    void* encoder_open()
+    void* c264_encoder_open()
     {
         return x264_encoder_open2();
     }
-    int encoder_config(void * ahandle,
+    int c264_encoder_config(void * ahandle,
                        unsigned int auWidth, unsigned int auHeight, unsigned int auColorBit,
                        unsigned int auKbps, unsigned int auFps, unsigned int auKeyInterval,
                        int aiQualityMode)
@@ -61,11 +61,11 @@ extern "C" {
                                       auKbps, auFps, auKeyInterval,
                                       aiQualityMode);
     }
-    void encoder_close(void * ahandle)
+    void c264_encoder_close(void * ahandle)
     {
         x264_encoder_close2(ahandle);
     }
-    int encoder_encode(void * ahandle,
+    int c264_encoder_encode(void * ahandle,
                        const unsigned char * apSrc,
                        unsigned char * apOut, unsigned int * auOutLen /* in out */,
                        int * auIsKeyFrame /* in out */,
@@ -77,7 +77,7 @@ extern "C" {
                                     auIsKeyFrame ,
                                     (int64_t*)ai_dts, (int64_t*)ai_pts);
     }
-    void encoder_get_sps_pps(void * ahandle,
+    void c264_encoder_get_sps_pps(void * ahandle,
                              void ** apSps, unsigned int * auSpsLen,
                              void ** apPps, unsigned int * auPpsLen)
     {
@@ -86,11 +86,11 @@ extern "C" {
                          apPps, auPpsLen);
     }
 
-    void * decoder_open()
+    void * c264_decoder_open()
     {
         return h264_decoder_open();
     }
-    int decoder_config(void * ahandle,
+    int c264_decoder_config(void * ahandle,
                        const char * apSps, const unsigned int auSpsLen,
                        const char * apPps, const unsigned int auPpsLen,
                        const unsigned int auWidth, const unsigned int auHeight,
@@ -102,11 +102,11 @@ extern "C" {
                                       auWidth,  auHeight,
                                       auColorBit,  abIsBGROrder);
     }
-    void decoder_close(void * ahandle)
+    void c264_decoder_close(void * ahandle)
     {
         h264_decoder_close(ahandle);
     }
-    int decoder_decode(void * ahandle,
+    int c264_decoder_decode(void * ahandle,
                        const unsigned char * apSrc,
                        const unsigned int auSrcLen,
                        unsigned char * apOut,

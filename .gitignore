@@ -20,3 +20,4 @@
 /sdk/build/Debug_Generic_Dll
 /sdk/build/DLL Debug
 
+/sdk/bin/*.ilk

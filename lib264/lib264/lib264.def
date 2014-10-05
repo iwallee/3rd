@@ -1,12 +1,12 @@
 EXPORTS
-	encoder_open     @1 NONAME
-    encoder_config   @2 NONAME
-    encoder_close    @3 NONAME
-    encoder_encode   @4 NONAME
-    encoder_get_sps_pps   @5 NONAME
+	c264_encoder_open     @1 NONAME
+    c264_encoder_config   @2 NONAME
+    c264_encoder_close    @3 NONAME
+    c264_encoder_encode   @4 NONAME
+    c264_encoder_get_sps_pps   @5 NONAME
 
-    decoder_open       @6 NONAME
-    decoder_config     @7 NONAME
-    decoder_close      @8 NONAME
-    decoder_decode     @9 NONAME
+    c264_decoder_open       @6 NONAME
+    c264_decoder_config     @7 NONAME
+    c264_decoder_close      @8 NONAME
+    c264_decoder_decode     @9 NONAME
 
