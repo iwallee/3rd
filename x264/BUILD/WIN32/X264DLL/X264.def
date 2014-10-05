@@ -1,4 +1,3 @@
-LIBRARY  libx264.dll
 EXPORTS
 
 	x264_param_default  @1

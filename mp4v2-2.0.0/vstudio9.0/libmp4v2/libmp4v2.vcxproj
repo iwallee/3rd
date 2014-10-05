@@ -240,6 +240,7 @@
       <TargetMachine>MachineX86</TargetMachine>
       <OutputFile>$(SolutionDir)\sdk\bin\$(ProjectName)d.dll</OutputFile>
       <ImportLibrary>$(SolutionDir)\sdk\lib\$(TargetName)d.lib</ImportLibrary>
+      <ProgramDatabaseFile>$(TargetDir)$(TargetName)d.pdb</ProgramDatabaseFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Static (MTd)|Win32'">
@@ -278,7 +279,7 @@
       <AdditionalIncludeDirectories>..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

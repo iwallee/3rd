@@ -233,6 +233,7 @@
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <FixedBaseAddress>true</FixedBaseAddress>
       <ImportLibrary>$(SolutionDir)\sdk\lib\$(TargetName)d.lib</ImportLibrary>
+      <ProgramDatabaseFile>$(TargetDir)$(TargetName)d.pdb</ProgramDatabaseFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_Generic_Dll|Win32'">
@@ -260,7 +261,7 @@
     </ClCompile>
     <Link>
       <OutputFile>$(SolutionDir)\sdk\bin\$(ProjectName).dll</OutputFile>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
       <BaseAddress>0x63000000</BaseAddress>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <FixedBaseAddress>true</FixedBaseAddress>
