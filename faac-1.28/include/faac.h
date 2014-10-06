@@ -77,7 +77,7 @@ faacEncHandle FAACAPI faacEncOpen(unsigned long sampleRate,
 				  unsigned long *maxOutputBytes);
 
 
-int FAACAPI faacEncGetDecoderSpecificInfo(faacEncHandle hEncoder, unsigned char **ppBuffer,
+int FAACAPI faacEncGetDecoderSpecificInfo(faacEncHandle hEncoder, unsigned char *ppBuffer,
 					  unsigned long *pSizeOfDecoderSpecificInfo);
 
 

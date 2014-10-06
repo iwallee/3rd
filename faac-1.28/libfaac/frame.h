@@ -130,7 +130,7 @@ int FAACAPI faacEncGetVersion(char **faac_id_string,
 			      char **faac_copyright_string);
 
 int FAACAPI faacEncGetDecoderSpecificInfo(faacEncHandle hEncoder,
-                                          unsigned char** ppBuffer,
+                                          unsigned char* ppBuffer,
                                           unsigned long* pSizeOfDecoderSpecificInfo);
 
 faacEncConfigurationPtr FAACAPI faacEncGetCurrentConfiguration(faacEncHandle hEncoder);

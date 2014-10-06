@@ -87,11 +87,11 @@ int FAACAPI faacEncGetVersion( char **faac_id_string,
 }
 
 
-int FAACAPI faacEncGetDecoderSpecificInfo(faacEncHandle hEncoder,unsigned char** ppBuffer,unsigned long* pSizeOfDecoderSpecificInfo)
+int FAACAPI faacEncGetDecoderSpecificInfo(faacEncHandle hEncoder,unsigned char* ppBuffer,unsigned long* pSizeOfDecoderSpecificInfo)
 {
     BitStream* pBitStream = NULL;
 
-    if((hEncoder == NULL) || (ppBuffer == NULL) || (pSizeOfDecoderSpecificInfo == NULL)) {
+    if ((hEncoder == NULL) || (ppBuffer == NULL) || (pSizeOfDecoderSpecificInfo == NULL) || *pSizeOfDecoderSpecificInfo < 2) {
         return -1;
     }
 
@@ -100,12 +100,12 @@ int FAACAPI faacEncGetDecoderSpecificInfo(faacEncHandle hEncoder,unsigned char**
     }
 
     *pSizeOfDecoderSpecificInfo = 2;
-    *ppBuffer = malloc(2);
+    //*ppBuffer = malloc(2);
 
     if(*ppBuffer != NULL){
 
-        memset(*ppBuffer,0,*pSizeOfDecoderSpecificInfo);
-        pBitStream = OpenBitStream(*pSizeOfDecoderSpecificInfo, *ppBuffer);
+        memset(ppBuffer,0,*pSizeOfDecoderSpecificInfo);
+        pBitStream = OpenBitStream(*pSizeOfDecoderSpecificInfo, ppBuffer);
         PutBit(pBitStream, hEncoder->config.aacObjectType, 5);
         PutBit(pBitStream, hEncoder->sampleRateIdx, 4);
         PutBit(pBitStream, hEncoder->numChannels, 4);
