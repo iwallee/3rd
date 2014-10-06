@@ -30,7 +30,7 @@
   Examples:
 
     // encode/decode with in-place memory buffers
-    char source[size], dest[size*2];
+    char source[size], dest[(size+2)*2];
     base64::encode(source, source+size, dest);
     base64::decode(dest, dest+size*2, source);
 
