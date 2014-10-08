@@ -2,7 +2,7 @@
 // FreeImagePlus 3
 //
 // Design and implementation by
-// - Hervé Drolon (drolon@infonie.fr)
+// - Herv?Drolon (drolon@infonie.fr)
 //
 // This file is part of FreeImage 3
 //
@@ -70,7 +70,7 @@
 
 /** Abstract base class for all objects used by the library.
 	@version FreeImage 3
-	@author Hervé Drolon
+	@author Herv?Drolon
 */
 
 class FIP_API fipObject
@@ -97,7 +97,7 @@ class fipTag;
 	fipImage encapsulates the FIBITMAP format. It relies on the FreeImage library, especially for 
 	loading / saving images and for bit depth conversion.
 	@version FreeImage 3
-	@author Hervé Drolon
+	@author Herv?Drolon
 */
 
 class FIP_API fipImage : public fipObject
@@ -986,7 +986,7 @@ public:
 	<li>Capture a window (HWND) and convert it to an image
 	</ul>
 	@version FreeImage 3
-	@author Hervé Drolon
+	@author Herv?Drolon
 */
 #ifdef _WIN32
 
@@ -1162,7 +1162,7 @@ protected:
 	
 	fipMemoryIO is a class that allows you to load / save images from / to a memory stream.
 	@version FreeImage 3
-	@author Hervé Drolon
+	@author Herv?Drolon
 */
 class FIP_API fipMemoryIO : public fipObject
 {
