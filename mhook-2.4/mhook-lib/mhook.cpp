@@ -64,6 +64,7 @@ inline void __cdecl odprintf(PCSTR format, ...)
                 buf[len++] = '\n';
                 buf[len] = 0;
                 OutputDebugStringA(buf);
+                printf(buf);
             }
             free(buf);
         }

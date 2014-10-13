@@ -21,9 +21,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="mhook-lib\mhook.cpp">
       <Filter>Source Files\mhook-lib</Filter>
     </ClCompile>
@@ -39,6 +36,7 @@
     <ClCompile Include="disasm-lib\misc.c">
       <Filter>Source Files\disasm-lib</Filter>
     </ClCompile>
+    <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mhook-lib\mhook.h">
