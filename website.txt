@@ -4,3 +4,4 @@ faac   http://sourceforge.net/projects/faac/files/
 faad2  http://sourceforge.net/projects/faac/files/
 mp4v2  https://code.google.com/p/mp4v2/
 giflib http://sourceforge.net/projects/giflib/
+stb    https://github.com/nothings/stb
