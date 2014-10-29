@@ -21,3 +21,4 @@
 /sdk/build/DLL Debug
 
 /sdk/bin/*.ilk
+/*.opensdf
