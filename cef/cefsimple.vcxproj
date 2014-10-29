@@ -415,11 +415,11 @@
     <ResourceCompile Include="cefsimple\cefsimple.rc"/>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="binary_distrib\cef_binary_3.2062.1812_windows32\cefclient.gyp">
+    <CustomBuild Include="binary_distrib\cef_binary_3.2062.1876_windows32\cefclient.gyp">
       <FileType>Document</FileType>
-      <Command>call call xcopy /efy &quot;Resources\*&quot; &quot;$(OutDir)&quot;&#xD;&#xA;if %errorlevel% neq 0 exit /b %errorlevel%&#xD;&#xA;call call xcopy /efy &quot;$(Configuration)\*.dll&quot; &quot;$(OutDir)&quot;</Command>
-      <Message>copy_resources, and also copy_libraries</Message>
-      <Outputs>$(OutDir)\copy_resources.stamp</Outputs>
+      <Command>call call xcopy /efy &quot;Resources\*&quot; &quot;$(OutDir)&quot;&#xD;&#xA;if %errorlevel% neq 0 exit /b %errorlevel%&#xD;&#xA;call call xcopy /efy &quot;$(Configuration)\*.exe&quot; &quot;$(OutDir)&quot;&#xD;&#xA;if %errorlevel% neq 0 exit /b %errorlevel%&#xD;&#xA;call call xcopy /efy &quot;$(Configuration)\*.dll&quot; &quot;$(OutDir)&quot;</Command>
+      <Message>copy_resources, and also copy_executables, and also copy_libraries</Message>
+      <Outputs>$(OutDir)\copy_resources.stamp;$(OutDir)\copy_executables.stamp;$(OutDir)\copy_libraries.stamp</Outputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>

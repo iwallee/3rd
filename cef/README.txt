@@ -1,11 +1,11 @@
 Chromium Embedded Framework (CEF) Standard Binary Distribution for Windows
 -------------------------------------------------------------------------------
 
-Date:             August 30, 2014
+Date:             October 18, 2014
 
-CEF Version:      3.2062.1812
+CEF Version:      3.2062.1876
 CEF URL:          https://chromiumembedded@bitbucket.org/chromiumembedded/branches-2062-cef3.git
-                  @1812
+                  @1876
 
 Chromium Verison: 37.0.2062.94
 Chromium URL:     https://chromium.googlesource.com/chromium/src.git
@@ -120,6 +120,11 @@ Optional components:
     libGLESv2.dll
   Note: Without these components HTML5 accelerated content like 2D canvas, 3D
   CSS and WebGL will not function.
+
+* Windows Vista 64-bit sandbox support (32-bit distributions only)
+    wow_helper.exe
+  Note: Without this component the 32-bit build of CEF will not run on 64-bit
+  Vista machines with the sandbox enabled.
 
 
 LICENSING
