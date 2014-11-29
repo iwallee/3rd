@@ -312,42 +312,27 @@ static MHOOKS_TRAMPOLINE* BlockAlloc(PBYTE pSystemFunction, PBYTE pbLower, PBYTE
     // Always allocate in bulk, in case the system actually has a smaller allocation granularity than MINALLOCSIZE.
     const ptrdiff_t cAllocSize = max(sSysInfo.dwAllocationGranularity, MHOOK_MINALLOCSIZE);
 
-    MHOOKS_TRAMPOLINE* pRetVal = NULL;
-    PBYTE pModuleGuess = (PBYTE) RoundDown((size_t)pSystemFunction, cAllocSize);
-    int loopCount = 0;
-    for (PBYTE pbAlloc = pModuleGuess; pbLower < pbAlloc && pbAlloc < pbUpper; ++loopCount) {
-        // determine current state
-        MEMORY_BASIC_INFORMATION mbi;
-        ODPRINTF((L"mhooks: BlockAlloc: Looking at address %p\r\n", pbAlloc));
-        if (!VirtualQuery(pbAlloc, &mbi, sizeof(mbi)))
-            break;
-        // free & large enough?
-        if (mbi.State == MEM_FREE && mbi.RegionSize >= (unsigned)cAllocSize) {
-            // and then try to allocate it
-            pRetVal = (MHOOKS_TRAMPOLINE*) VirtualAlloc(pbAlloc, cAllocSize, MEM_COMMIT|MEM_RESERVE, PAGE_EXECUTE_READWRITE);
-            if (pRetVal) {
-                size_t trampolineCount = cAllocSize / sizeof(MHOOKS_TRAMPOLINE);
-                ODPRINTF((L"mhooks: BlockAlloc: Allocated block at %p as %d trampolines\r\n", pRetVal, trampolineCount));
+    HANDLE hProcess = GetCurrentProcess();
+    // and then try to allocate it
+    MHOOKS_TRAMPOLINE* pRetVal = (MHOOKS_TRAMPOLINE*)VirtualAllocEx(hProcess, 0, cAllocSize, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
+    if (pRetVal) {
+        size_t trampolineCount = cAllocSize / sizeof(MHOOKS_TRAMPOLINE);
+        ODPRINTF((L"mhooks: BlockAlloc: Allocated block at %p as %d trampolines\r\n", pRetVal, trampolineCount));
 
-                pRetVal[0].pPrevTrampoline = NULL;
-                pRetVal[0].pNextTrampoline = &pRetVal[1];
+        pRetVal[0].pPrevTrampoline = NULL;
+        pRetVal[0].pNextTrampoline = &pRetVal[1];
 
-                // prepare them by having them point down the line at the next entry.
-                for (size_t s = 1; s < trampolineCount; ++s) {
-                    pRetVal[s].pPrevTrampoline = &pRetVal[s - 1];
-                    pRetVal[s].pNextTrampoline = &pRetVal[s + 1];
-                }
-
-                // last entry points to the current head of the free list
-                pRetVal[trampolineCount - 1].pNextTrampoline = g_pFreeList;
-                break;
-            }
+        // prepare them by having them point down the line at the next entry.
+        for (size_t s = 1; s < trampolineCount; ++s) {
+            pRetVal[s].pPrevTrampoline = &pRetVal[s - 1];
+            pRetVal[s].pNextTrampoline = &pRetVal[s + 1];
         }
 
-        // This is a spiral, should be -1, 1, -2, 2, -3, 3, etc. (* cAllocSize)
-        ptrdiff_t bytesToOffset = (cAllocSize * (loopCount + 1) * ((loopCount % 2 == 0) ? -1 : 1));
-        pbAlloc = pbAlloc + bytesToOffset;
+        // last entry points to the current head of the free list
+        pRetVal[trampolineCount - 1].pNextTrampoline = g_pFreeList;
+        //break;
     }
+   
 
     return pRetVal;
 }
