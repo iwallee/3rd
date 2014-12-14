@@ -311,10 +311,11 @@ static MHOOKS_TRAMPOLINE* BlockAlloc(PBYTE pSystemFunction, PBYTE pbLower, PBYTE
 
     // Always allocate in bulk, in case the system actually has a smaller allocation granularity than MINALLOCSIZE.
     const ptrdiff_t cAllocSize = max(sSysInfo.dwAllocationGranularity, MHOOK_MINALLOCSIZE);
-
     HANDLE hProcess = GetCurrentProcess();
-    // and then try to allocate it
-    MHOOKS_TRAMPOLINE* pRetVal = (MHOOKS_TRAMPOLINE*)VirtualAllocEx(hProcess, 0, cAllocSize, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
+    MHOOKS_TRAMPOLINE* pRetVal = NULL;
+#ifdef _M_IX86
+    // try to allocate it
+    pRetVal = (MHOOKS_TRAMPOLINE*)VirtualAllocEx(hProcess, 0, cAllocSize, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
     if (pRetVal) {
         size_t trampolineCount = cAllocSize / sizeof(MHOOKS_TRAMPOLINE);
         ODPRINTF((L"mhooks: BlockAlloc: Allocated block at %p as %d trampolines\r\n", pRetVal, trampolineCount));
@@ -330,9 +331,37 @@ static MHOOKS_TRAMPOLINE* BlockAlloc(PBYTE pSystemFunction, PBYTE pbLower, PBYTE
 
         // last entry points to the current head of the free list
         pRetVal[trampolineCount - 1].pNextTrampoline = g_pFreeList;
-        //break;
     }
-   
+#else
+    PBYTE pModuleGuess = (PBYTE)RoundDown((size_t)pSystemFunction, cAllocSize);
+    int loopCount = 0;
+    for (PBYTE pbAlloc = pModuleGuess; pbLower < pbAlloc && pbAlloc < pbUpper; ++loopCount) {
+        // try to allocate it
+        pRetVal = (MHOOKS_TRAMPOLINE*)VirtualAllocEx(hProcess, pbAlloc, cAllocSize, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
+        if (pRetVal) {
+            size_t trampolineCount = cAllocSize / sizeof(MHOOKS_TRAMPOLINE);
+            ODPRINTF((L"mhooks: BlockAlloc: Allocated block at %p as %d trampolines\r\n", pRetVal, trampolineCount));
+
+            pRetVal[0].pPrevTrampoline = NULL;
+            pRetVal[0].pNextTrampoline = &pRetVal[1];
+
+            // prepare them by having them point down the line at the next entry.
+            for (size_t s = 1; s < trampolineCount; ++s) {
+                pRetVal[s].pPrevTrampoline = &pRetVal[s - 1];
+                pRetVal[s].pNextTrampoline = &pRetVal[s + 1];
+            }
+
+            // last entry points to the current head of the free list
+            pRetVal[trampolineCount - 1].pNextTrampoline = g_pFreeList;
+            break;
+        }
+
+        // This is a spiral, should be -1, 1, -2, 2, -3, 3, etc. (* cAllocSize)
+        ptrdiff_t bytesToOffset = (cAllocSize * (loopCount + 1) * ((loopCount % 2 == 0) ? -1 : 1));
+        pbAlloc = pbAlloc + bytesToOffset;
+    }
+#endif
+
 
     return pRetVal;
 }
@@ -351,7 +380,7 @@ static MHOOKS_TRAMPOLINE* FindTrampolineInRange(PBYTE pLower, PBYTE pUpper)
     // This is a standard free list, except we're doubly linked to deal with soem return shenanigans.
     MHOOKS_TRAMPOLINE* curEntry = g_pFreeList;
     while (curEntry) {
-        if ((MHOOKS_TRAMPOLINE*) pLower < curEntry && curEntry < (MHOOKS_TRAMPOLINE*) pUpper) {
+        if ((MHOOKS_TRAMPOLINE*)pLower < curEntry && curEntry < (MHOOKS_TRAMPOLINE*)pUpper && curEntry->pSystemFunction == NULL) {
             ListRemove(&g_pFreeList, curEntry);
 
             return curEntry;
@@ -371,7 +400,6 @@ static MHOOKS_TRAMPOLINE* FindTrampolineInRange(PBYTE pLower, PBYTE pUpper)
 //=========================================================================
 static MHOOKS_TRAMPOLINE* TrampolineAlloc(PBYTE pSystemFunction, S64 nLimitUp, S64 nLimitDown)
 {
-
     MHOOKS_TRAMPOLINE* pTrampoline = NULL;
 
     // determine lower and upper bounds for the allocation locations.
