@@ -506,7 +506,7 @@ static HANDLE SuspendOneThread(DWORD dwThreadId, PBYTE pbCode, DWORD cbBytes)
                         // we gave it all we could. (this will probably never
                         // happen - unless the thread has already been suspended
                         // to begin with)
-                        ODPRINTF((L"mhooks[info]: SuspendOneThread: suspended thread %d - IP is at %p - IS COLLIDING WITH CODE - CAN'T FIX\r\n", dwThreadId, pIp));
+                        ODPRINTF((L"mhooks[warn]: SuspendOneThread: suspended thread %d - IP is at %p - IS COLLIDING WITH CODE - CAN'T FIX\r\n", dwThreadId, pIp));
                         ResumeThread(hThread);
                         CloseHandle(hThread);
                         hThread = NULL;
@@ -514,7 +514,7 @@ static HANDLE SuspendOneThread(DWORD dwThreadId, PBYTE pbCode, DWORD cbBytes)
                     }
                 } else {
                     // success, the IP is not conflicting
-                    ODPRINTF((L"mhooks[warn]: SuspendOneThread: Successfully suspended thread %d - IP is at %p\r\n", dwThreadId, pIp));
+                    ODPRINTF((L"mhooks[info]: SuspendOneThread: Successfully suspended thread %d - IP is at %p\r\n", dwThreadId, pIp));
                     break;
                 }
             }
