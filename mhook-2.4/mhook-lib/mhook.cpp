@@ -331,6 +331,9 @@ static MHOOKS_TRAMPOLINE* BlockAlloc(PBYTE pSystemFunction, PBYTE pbLower, PBYTE
 
         // last entry points to the current head of the free list
         pRetVal[trampolineCount - 1].pNextTrampoline = g_pFreeList;
+        if (g_pFreeList){
+            g_pFreeList->pPrevTrampoline = &pRetVal[trampolineCount - 1];
+        }
     }
 #else
     PBYTE pModuleGuess = (PBYTE)RoundDown((size_t)pSystemFunction, cAllocSize);
@@ -353,6 +356,9 @@ static MHOOKS_TRAMPOLINE* BlockAlloc(PBYTE pSystemFunction, PBYTE pbLower, PBYTE
 
             // last entry points to the current head of the free list
             pRetVal[trampolineCount - 1].pNextTrampoline = g_pFreeList;
+            if (g_pFreeList){
+                g_pFreeList->pPrevTrampoline = &pRetVal[trampolineCount - 1];
+            }
             break;
         }
 
