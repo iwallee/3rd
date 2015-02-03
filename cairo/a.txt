@@ -1,0 +1,80 @@
+make[1]: Entering directory `/e/code/cairo/pixman/pixman'
+Setting MMX flag to default value 'on'... (use MMX=on or MMX=off)
+Setting SSE2 flag to default value 'on'... (use SSE2=on or SSE2=off)
+Setting SSSE3 flag to default value 'on'... (use SSSE3=on or SSSE3=off)
+make[1]: Leaving directory `/e/code/cairo/pixman/pixman'
+make[1]: Entering directory `/e/code/cairo/pixman/test'
+make[2]: Entering directory `/e/code/cairo/pixman/pixman'
+Setting MMX flag to default value 'on'... (use MMX=on or MMX=off)
+Setting SSE2 flag to default value 'on'... (use SSE2=on or SSE2=off)
+Setting SSSE3 flag to default value 'on'... (use SSSE3=on or SSSE3=off)
+make[2]: Leaving directory `/e/code/cairo/pixman/pixman'
+infinite-loop.c
+MSVCRT.lib(MSVCR120.dll) : error LNK2005: __wassert 已经在 LIBCMT.lib(wassert.obj) 中定义
+MSVCRT.lib(MSVCR120.dll) : error LNK2005: _printf 已经在 LIBCMT.lib(printf.obj) 中定义
+MSVCRT.lib(MSVCR120.dll) : error LNK2005: _abort 已经在 LIBCMT.lib(abort.obj) 中定义
+MSVCRT.lib(MSVCR120.dll) : error LNK2005: _getenv 已经在 LIBCMT.lib(getenv.obj) 中定义
+MSVCRT.lib(MSVCR120.dll) : error LNK2005: _free 已经在 LIBCMT.lib(free.obj) 中定义
+MSVCRT.lib(MSVCR120.dll) : error LNK2005: _malloc 已经在 LIBCMT.lib(malloc.obj) 中定义
+LINK : warning LNK4098: 默认库“MSVCRT”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+release/infinite-loop.exe : fatal error LNK1169: 找到一个或多个多重定义的符号
+rm release/infinite-loop.obj
+make[1]: Leaving directory `/e/code/cairo/pixman/test'
+
+make[1]: Entering directory `/e/code/cairo/src'
+
+Built successfully!
+You should copy the following files to a proper place now:
+
+	cairo-version.h (NOTE: toplevel, not the src/cairo-version.h one!)
+	src/cairo-features.h
+	src/cairo.h
+	src/cairo-deprecated.h
+	src/cairo-win32.h
+	src/cairo-script.h
+	src/cairo-ps.h
+	src/cairo-pdf.h
+	src/cairo-svg.h
+	src/release/cairo.dll
+	src/release/cairo-static.lib
+make[1]: Leaving directory `/e/code/cairo/src'
+make[1]: Entering directory `/e/code/cairo/pixman/pixman'
+Setting MMX flag to default value 'on'... (use MMX=on or MMX=off)
+Setting SSE2 flag to default value 'on'... (use SSE2=on or SSE2=off)
+Setting SSSE3 flag to default value 'on'... (use SSSE3=on or SSSE3=off)
+make[1]: Leaving directory `/e/code/cairo/pixman/pixman'
+make[1]: Entering directory `/e/code/cairo/pixman/test'
+make[2]: Entering directory `/e/code/cairo/pixman/pixman'
+Setting MMX flag to default value 'on'... (use MMX=on or MMX=off)
+Setting SSE2 flag to default value 'on'... (use SSE2=on or SSE2=off)
+Setting SSSE3 flag to default value 'on'... (use SSSE3=on or SSSE3=off)
+make[2]: Leaving directory `/e/code/cairo/pixman/pixman'
+infinite-loop.c
+MSVCRT.lib(MSVCR120.dll) : error LNK2005: __wassert 已经在 LIBCMT.lib(wassert.obj) 中定义
+MSVCRT.lib(MSVCR120.dll) : error LNK2005: _printf 已经在 LIBCMT.lib(printf.obj) 中定义
+MSVCRT.lib(MSVCR120.dll) : error LNK2005: _abort 已经在 LIBCMT.lib(abort.obj) 中定义
+MSVCRT.lib(MSVCR120.dll) : error LNK2005: _getenv 已经在 LIBCMT.lib(getenv.obj) 中定义
+MSVCRT.lib(MSVCR120.dll) : error LNK2005: _free 已经在 LIBCMT.lib(free.obj) 中定义
+MSVCRT.lib(MSVCR120.dll) : error LNK2005: _malloc 已经在 LIBCMT.lib(malloc.obj) 中定义
+LINK : warning LNK4098: 默认库“MSVCRT”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+release/infinite-loop.exe : fatal error LNK1169: 找到一个或多个多重定义的符号
+rm release/infinite-loop.obj
+make[1]: Leaving directory `/e/code/cairo/pixman/test'
+
+make[1]: Entering directory `/e/code/cairo/src'
+
+Built successfully!
+You should copy the following files to a proper place now:
+
+	cairo-version.h (NOTE: toplevel, not the src/cairo-version.h one!)
+	src/cairo-features.h
+	src/cairo.h
+	src/cairo-deprecated.h
+	src/cairo-win32.h
+	src/cairo-script.h
+	src/cairo-ps.h
+	src/cairo-pdf.h
+	src/cairo-svg.h
+	src/release/cairo.dll
+	src/release/cairo-static.lib
+make[1]: Leaving directory `/e/code/cairo/src'
